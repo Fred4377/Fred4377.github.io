@@ -33,6 +33,314 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
+        
+        /* Gradient Text Utility */
+        .text-gradient {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 201, 255, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(26, 115, 232, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(0, 201, 255, 0.1);
+            border-radius: 50%;
+            animation: float 10s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 10%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        /* About Teaser */
+        .about-teaser {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-teaser p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--surface-color);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--primary);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .tech-tags span {
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .project-link {
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: var(--secondary);
+        }
+
+        .project-link.live {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 201, 255, 0.25);
+            margin-left: auto;
+        }
+
+        .project-link.live:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 201, 255, 0.4);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* Live Demo Modal */
         .demo-modal {
@@ -94,327 +402,39 @@
             border: none;
             background: #fff;
         }
-        
-        /* Gradient Text Utility */
-        .text-gradient {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
 
-        /* Navbar */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(10, 10, 15, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav ul li a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--secondary);
-        }
-
-        /* Hero Section */
-        header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            padding: 0 20px;
-        }
-
-        header h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        header h2 {
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 201, 255, 0.5);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text-main);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: rgba(26, 115, 232, 0.1);
-            transform: translateY(-3px);
-        }
-
-        /* Particles */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .particle {
-            position: absolute;
-            background: rgba(0, 201, 255, 0.1);
-            border-radius: 50%;
-            animation: float 10s infinite linear;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(100vh) scale(0); opacity: 1; }
-            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
-        }
-
-        /* Sections */
-        section {
-            padding: 100px 10%;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
-        /* About & Skills */
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            color: var(--text-muted);
-        }
-
-        .skills {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .skill-badge {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 10px 20px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .skill-badge:hover {
-            transform: translateY(-5px);
-            border-color: var(--secondary);
-            background: rgba(0, 201, 255, 0.1);
-        }
-
-        /* Projects */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background: var(--surface-color);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 30px;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .project-card p {
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 25px;
-        }
-
-        .tech-tags span {
-            font-size: 0.8rem;
-            padding: 4px 10px;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.05);
-            font-family: 'Fira Code', monospace;
-        }
-
-        .project-link {
-            display: inline-block;
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: opacity 0.3s;
-        }
-
-        .project-link:hover {
-            opacity: 0.8;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--text-muted);
-        }
-
-        .social-links {
-            margin-bottom: 20px;
-        }
-
-        .social-links a {
-            color: var(--text-main);
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--secondary);
-        }
-
-        /* Reveal Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 900px) {
-            .about-content { grid-template-columns: 1fr !important; gap: 30px !important; }
-        }
         @media (max-width: 768px) {
             header h1 { font-size: 2.5rem; }
             nav { padding: 20px; }
-            nav ul { display: none; /* TODO: Add hamburger menu logic for mobile */ }
+            nav ul { display: none; }
             section { padding: 60px 5%; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Navbar -->
     <nav>
-        <div class="logo">Fred<span class="text-gradient">.dev</span></div>
+        <div class="logo">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                <span class="text-gradient">Fred</span> Otieno
+            </a>
+        </div>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="experience.html">Experience & Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="Fred_Otieno_Resume.pdf" download class="btn btn-outline" style="padding: 6px 15px; font-size: 0.85rem; border-radius: 4px;">
+                <i class="fas fa-download"></i> Resume
+            </a>
+        </div>
     </nav>
 
+    <!-- Hero Section -->
     <header id="home">
         <div class="particles" id="particles"></div>
         <img src="https://github.com/Fred4377.png" alt="Fred Otieno" class="reveal active" style="width: 180px; height: 180px; border-radius: 50%; border: 4px solid var(--primary); margin-bottom: 20px; object-fit: cover; box-shadow: 0 10px 30px rgba(0, 201, 255, 0.4); z-index: 1;">
@@ -424,210 +444,85 @@
             Specializing in the MERN stack. I turn complex problems into elegant, modern, and scalable web solutions.
         </p>
         <div class="cta-buttons reveal active">
-            <a href="#projects" class="btn btn-primary">View My Work</a>
-            <a href="https://github.com/Fred4377" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+            <a href="projects.html" class="btn btn-primary"><i class="fas fa-folder-open"></i> View My Work</a>
+            <a href="Fred_Otieno_Resume.pdf" download class="btn btn-outline"><i class="fas fa-download"></i> Download Resume</a>
         </div>
     </header>
 
+    <!-- Brief About Teaser -->
     <section id="about">
-        <h2 class="section-title reveal"><span class="text-gradient">About & Skills</span></h2>
-        <div class="about-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start;">
-            <div class="about-text reveal">
-                <p style="font-size: 1.15rem; margin-bottom: 20px; line-height: 1.8;">Hello! I'm <strong>Fred Otieno</strong>, a visionary Full-Stack Web Developer based in Nairobi, Kenya. With over 3 years of expertise spanning the MERN stack and advanced UI/UX architecture, I specialize in transforming complex requirements into elegant, high-performance web applications.</p>
-                <p style="font-size: 1.15rem; margin-bottom: 20px; line-height: 1.8;">My technical journey began at Inceptor Institute of Technology and Nyakach TVC. Today, I architect world-class digital experiences—ranging from cinematic luxury platforms to premium SaaS dashboards. I pride myself on bridging the gap between flawless, modern aesthetics and robust backend engineering.</p>
-                <p style="font-size: 1.15rem; margin-bottom: 20px; line-height: 1.8;">When I'm not writing clean, efficient code, I am constantly researching modern design trends to ensure every product I launch stands out in the competitive digital landscape.</p>
-            </div>
-            <div class="skills-container reveal" style="display: flex; flex-direction: column; gap: 25px;">
-                
-                <div class="skill-category" style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                    <h3 style="color: var(--secondary); margin-bottom: 15px; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;"><i class="fas fa-layer-group"></i> Frontend & UI Architecture</h3>
-                    <div class="skills" style="display: flex; flex-wrap: wrap; gap: 10px;">
-                        <div class="skill-badge"><i class="fab fa-react" style="color: #61DAFB;"></i> React.js</div>
-                        <div class="skill-badge"><i class="fab fa-js" style="color: #F7DF1E;"></i> JavaScript (ES6+)</div>
-                        <div class="skill-badge"><i class="fas fa-code" style="color: #3178C6;"></i> TypeScript</div>
-                        <div class="skill-badge"><i class="fas fa-paint-brush" style="color: #38B2AC;"></i> TailwindCSS</div>
-                        <div class="skill-badge"><i class="fab fa-html5" style="color: #E34F26;"></i> HTML5 / CSS3</div>
-                    </div>
-                </div>
-
-                <div class="skill-category" style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                    <h3 style="color: var(--primary); margin-bottom: 15px; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;"><i class="fas fa-server"></i> Backend & Databases</h3>
-                    <div class="skills" style="display: flex; flex-wrap: wrap; gap: 10px;">
-                        <div class="skill-badge"><i class="fab fa-node-js" style="color: #339933;"></i> Node.js</div>
-                        <div class="skill-badge"><i class="fas fa-database" style="color: #47A248;"></i> MongoDB</div>
-                        <div class="skill-badge"><i class="fab fa-python" style="color: #3776AB;"></i> Python</div>
-                        <div class="skill-badge"><i class="fab fa-php" style="color: #777BB4;"></i> PHP</div>
-                        <div class="skill-badge"><i class="fas fa-network-wired" style="color: #94a3b8;"></i> RESTful APIs</div>
-                    </div>
-                </div>
-
-                <div class="skill-category" style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                    <h3 style="color: #a78bfa; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;"><i class="fas fa-tools"></i> Tools & Deployment</h3>
-                    <div class="skills" style="display: flex; flex-wrap: wrap; gap: 10px;">
-                        <div class="skill-badge"><i class="fab fa-git-alt" style="color: #F05032;"></i> Git & GitHub</div>
-                        <div class="skill-badge"><i class="fas fa-cloud-upload-alt" style="color: #38bdf8;"></i> Vercel & Netlify</div>
-                        <div class="skill-badge"><i class="fas fa-mobile-alt" style="color: #a3e635;"></i> Responsive UX</div>
-                    </div>
-                </div>
-
-            </div>
-        </div></section>
-
-    <section id="projects">
-        <h2 class="section-title reveal">Featured <span class="text-gradient">Projects</span></h2>
-        <div class="project-grid">
-            
-            <div class="project-card reveal">
-                <!-- Fallback to thum.io but we could replace this with local assets if needed -->
-                <img src="https://fred4377.github.io/shopease/screenshots/preview.png" alt="ShopEase" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                <h3>ShopEase</h3>
-                <p>A full-stack e-commerce platform featuring product browsing, cart management, and seamless checkout flow.</p>
-                <div class="tech-tags">
-                    <span>React</span><span>Node.js</span><span>MongoDB</span>
-                </div>
-                <div style="display: flex; gap: 15px; margin-top: auto;">
-                    <a href="https://github.com/Fred4377/shopease" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
-                    <a href="https://fred4377.github.io/shopease/" target="_blank" class="project-link" style="background: linear-gradient(135deg, #00c9ff, #92fe9d); color: #0f172a; border: none; box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);"><i class="fas fa-play"></i> Live Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <img src="https://fred4377.github.io/dashpro-dashboard/screenshots/preview.png" alt="DashPro Dashboard" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                <h3>DashPro Dashboard</h3>
-                <p>Professional admin dashboard with real-time analytics, data visualization, and comprehensive user management.</p>
-                <div class="tech-tags">
-                    <span>JavaScript</span><span>React</span><span>Chart.js</span>
-                </div>
-                <div style="display: flex; gap: 15px; margin-top: auto;">
-                    <a href="https://github.com/Fred4377/dashpro-dashboard" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
-                    <a href="https://fred4377.github.io/dashpro-dashboard/" target="_blank" class="project-link" style="background: linear-gradient(135deg, #00c9ff, #92fe9d); color: #0f172a; border: none; box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);"><i class="fas fa-play"></i> Live Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <img src="https://fred4377.github.io/bookease/screenshots/preview.png" alt="BookEase" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                <h3>BookEase</h3>
-                <p>Online booking and reservation system with smart scheduling, real-time availability, and user accounts.</p>
-                <div class="tech-tags">
-                    <span>React</span><span>Express</span><span>MongoDB</span>
-                </div>
-                <div style="display: flex; gap: 15px; margin-top: auto;">
-                    <a href="https://github.com/Fred4377/bookease" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
-                    <a href="https://fred4377.github.io/bookease/" target="_blank" class="project-link" style="background: linear-gradient(135deg, #00c9ff, #92fe9d); color: #0f172a; border: none; box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);"><i class="fas fa-play"></i> Live Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <img src="https://fred4377.github.io/chatbotpro/screenshots/preview.png" alt="ChatBotPro" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                <h3>ChatBotPro</h3>
-                <p>Intelligent AI-powered chatbot application with real-time messaging and a beautiful conversational UI.</p>
-                <div class="tech-tags">
-                    <span>React</span><span>Node.js</span><span>AI APIs</span>
-                </div>
-                <div style="display: flex; gap: 15px; margin-top: auto;">
-                    <a href="https://github.com/Fred4377/chatbotpro" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
-                    <a href="https://fred4377.github.io/chatbotpro/" target="_blank" class="project-link" style="background: linear-gradient(135deg, #00c9ff, #92fe9d); color: #0f172a; border: none; box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);"><i class="fas fa-play"></i> Live Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <img src="https://fred4377.github.io/CCGworkflow/screenshots/preview.png" alt="CCGworkflow" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                <h3>CCGworkflow</h3>
-                <p>Workflow management tool for team collaboration, automated processes, and task tracking.</p>
-                <div class="tech-tags">
-                    <span>TypeScript</span><span>React</span><span>Node.js</span>
-                </div>
-                <div style="display: flex; gap: 15px; margin-top: auto;">
-                    <a href="https://github.com/Fred4377/CCGworkflow" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
-                    <a href="https://fred4377.github.io/CCGworkflow/" target="_blank" class="project-link" style="background: linear-gradient(135deg, #00c9ff, #92fe9d); color: #0f172a; border: none; box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);"><i class="fas fa-play"></i> Live Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <img src="https://fred4377.github.io/barbar-shop/screenshots/preview.png" alt="Barbar Shop" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                <h3>Premium Barber Shop</h3>
-                <p>A highly responsive and visually striking salon application featuring elegant CSS styling, smooth scrolling, and complete service booking UX.</p>
-                <div class="tech-tags">
-                    <span>HTML/CSS</span><span>JavaScript</span><span>Responsive UI</span>
-                </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: auto; align-items: center;">
-                    <a href="https://fred4377.github.io/barbar-shop/" target="_blank" class="project-link" style="color: #00c9ff;"><i class="fas fa-external-link-alt"></i> Live App</a>
-                    <button onclick="openDemoModal('https://fred4377.github.io/barbar-shop/')" class="project-link" style="background:none; border:none; color: #ec4899; cursor:pointer; font-family:inherit; font-size: 0.9rem; font-weight: 600; padding:0;"><i class="fas fa-video"></i> Video Demo</button>
-                    <a href="https://github.com/Fred4377/barbar-shop" target="_blank" class="project-link"><i class="fab fa-github"></i> Repo</a>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <img src="https://fred4377.github.io/project/screenshots/preview.png" alt="Obachi Mobile Shop" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                <h3>Obachi Mobile E-Commerce</h3>
-                <p>A fast, sleek e-commerce storefront for mobile devices. Implements interactive product carousels, smart item filtering, and deep dark mode aesthetics.</p>
-                <div class="tech-tags">
-                    <span>Bootstrap</span><span>jQuery</span><span>E-Commerce UX</span>
-                </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: auto; align-items: center;">
-                    <a href="https://fred4377.github.io/project/" target="_blank" class="project-link" style="color: #00c9ff;"><i class="fas fa-external-link-alt"></i> Live App</a>
-                    <button onclick="openDemoModal('https://fred4377.github.io/project/')" class="project-link" style="background:none; border:none; color: #ec4899; cursor:pointer; font-family:inherit; font-size: 0.9rem; font-weight: 600; padding:0;"><i class="fas fa-video"></i> Video Demo</button>
-                    <a href="https://github.com/Fred4377/project" target="_blank" class="project-link"><i class="fab fa-github"></i> Repo</a>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <img src="https://fred4377.github.io/Hotel/screenshots/preview.png" alt="Hotel Booking" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                <h3>Grand Horizon Hotel <i class="fas fa-star" style="color: gold; font-size: 0.9rem;"></i></h3>
-                <p>A world-class luxury hotel web application featuring <strong>Cinematic Background Slideshows</strong>, elegant <strong>Glassmorphism UI</strong>, dynamic typewriter animations, and seamless interactive menus.</p>
-                <div class="tech-tags">
-                    <span>Advanced CSS3</span><span>JavaScript Engine</span><span>Responsive UX</span>
-                </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: auto; align-items: center;">
-                    <a href="https://fred4377.github.io/Hotel/" target="_blank" class="project-link" style="color: #00c9ff;"><i class="fas fa-external-link-alt"></i> Live App</a>
-                    <button onclick="openDemoModal('https://fred4377.github.io/Hotel/')" class="project-link" style="background:none; border:none; color: #ec4899; cursor:pointer; font-family:inherit; font-size: 0.9rem; font-weight: 600; padding:0;"><i class="fas fa-video"></i> Video Demo</button>
-                    <a href="https://github.com/Fred4377/Hotel" target="_blank" class="project-link"><i class="fab fa-github"></i> Repo</a>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <img src="https://fred4377.github.io/theme-/screenshots/preview.png" alt="ThemeStore" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                <h3>ThemeStore Templates</h3>
-                <p>A premium template and UI kit storefront styled with a warm Nordic palette. Features dynamic typewriter text and integrated M-Pesa checkouts.</p>
-                <div class="tech-tags">
-                    <span>HTML5</span><span>CSS3 / Lora</span><span>M-Pesa STK</span>
-                </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: auto; align-items: center;">
-                    <a href="https://fred4377.github.io/theme-/" target="_blank" class="project-link" style="color: #00c9ff;"><i class="fas fa-external-link-alt"></i> Live App</a>
-                    <button onclick="openDemoModal('https://fred4377.github.io/theme-/')" class="project-link" style="background:none; border:none; color: #ec4899; cursor:pointer; font-family:inherit; font-size: 0.9rem; font-weight: 600; padding:0;"><i class="fas fa-video"></i> Video Demo</button>
-                    <a href="https://github.com/Fred4377/theme-" target="_blank" class="project-link"><i class="fab fa-github"></i> Repo</a>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <img src="https://fred4377.github.io/-fredva-admin-dashboard-bot/screenshots/preview.png" alt="FredVA Admin Dashboard" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                <h3>FredVA Admin Dashboard</h3>
-                <p>A premium bot administration panel styled with a Royal Velvet palette. Features active status telemetry, automated outbound email flows, M-Pesa sandbox logs, and a CLI terminal.</p>
-                <div class="tech-tags">
-                    <span>Next.js</span><span>Tailwind CSS</span><span>Daraja STK</span><span>Terminal CLI</span>
-                </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: auto; align-items: center;">
-                    <a href="https://fred4377.github.io/-fredva-admin-dashboard-bot/" target="_blank" class="project-link" style="color: #00c9ff;"><i class="fas fa-external-link-alt"></i> Live App</a>
-                    <button onclick="openDemoModal('https://fred4377.github.io/-fredva-admin-dashboard-bot/')" class="project-link" style="background:none; border:none; color: #ec4899; cursor:pointer; font-family:inherit; font-size: 0.9rem; font-weight: 600; padding:0;"><i class="fas fa-video"></i> Video Demo</button>
-                    <a href="https://github.com/Fred4377/-fredva-admin-dashboard-bot" target="_blank" class="project-link"><i class="fab fa-github"></i> Repo</a>
-                </div>
-            </div>
-
-
+        <h2 class="section-title reveal"><span class="text-gradient">Who I Am</span></h2>
+        <div class="about-teaser reveal">
+            <p>I'm a Nairobi-based developer with a passion for designing, constructing, and optimizing full-stack applications. Backed by formal training at Inceptor Institute of Technology and Nyakach TVC, I write clean code that scales and builds elegant, responsive UIs that satisfy client specifications.</p>
+            <a href="about.html" class="btn btn-outline">Read My Full Story & Education</a>
         </div>
     </section>
 
+    <!-- Flagship Projects Teaser -->
+    <section id="projects">
+        <h2 class="section-title reveal">Featured <span class="text-gradient">Work</span></h2>
+        <div class="project-grid">
+            
+            <!-- 1. ShopEase -->
+            <div class="project-card reveal">
+                <img src="https://fred4377.github.io/shopease/screenshots/preview.png" alt="ShopEase">
+                <h3>ShopEase</h3>
+                <p>MERN e-commerce application customized with a Warm Cream/Forest Green storefront, local Nairobi CBD area delivery selectors, and Lipa na M-Pesa STK checkout simulations.</p>
+                <div class="tech-tags">
+                    <span>React.js</span><span>Node.js</span><span>Express</span><span>MongoDB</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/shopease" target="_blank" class="project-link"><i class="fab fa-github"></i> Repo</a>
+                    <a href="#" onclick="event.preventDefault(); openDemoModal('https://fred4377.github.io/shopease/')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 2. DashPro Dashboard -->
+            <div class="project-card reveal">
+                <img src="https://fred4377.github.io/dashpro-dashboard/screenshots/preview.png" alt="DashPro Dashboard">
+                <h3>DashPro Dashboard</h3>
+                <p>Dense SaaS analytics dashboard styled with a utilitarian Cyberpunk Slate theme. Features scrolling logs terminals, handwritten post-it task lists, and custom flat vertical charts.</p>
+                <div class="tech-tags">
+                    <span>React.js</span><span>JavaScript</span><span>Tailwind CSS</span><span>Chart.js</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/dashpro-dashboard" target="_blank" class="project-link"><i class="fab fa-github"></i> Repo</a>
+                    <a href="#" onclick="event.preventDefault(); openDemoModal('https://fred4377.github.io/dashpro-dashboard/')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 3. BookEase -->
+            <div class="project-card reveal">
+                <img src="https://fred4377.github.io/bookease/screenshots/preview.png" alt="BookEase">
+                <h3>BookEase</h3>
+                <p>Fresh Mint salon booking engine with detailed service catalogues, calendar slot booking scheduling, and click-to-chat WhatsApp verification pipelines.</p>
+                <div class="tech-tags">
+                    <span>React.js</span><span>Node.js</span><span>Express</span><span>MongoDB</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/bookease" target="_blank" class="project-link"><i class="fab fa-github"></i> Repo</a>
+                    <a href="#" onclick="event.preventDefault(); openDemoModal('https://fred4377.github.io/bookease/')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;" class="reveal">
+            <a href="projects.html" class="btn btn-primary"><i class="fas fa-layer-group"></i> View All 10 Projects</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="social-links">
             <a href="https://github.com/Fred4377" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:fred@example.com"><i class="fas fa-envelope"></i></a>
+            <a href="contact.html"><i class="fas fa-envelope"></i></a>
         </div>
         <p>&copy; 2026 Fred Otieno. Built with 💻 and ☕ in Nairobi.</p>
     </footer>
 
+    <!-- Intersection Observer & Particle Scripts -->
     <script>
-        // Use Intersection Observer for scrolling animations rather than the old slow way
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -638,7 +533,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // only animate once
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
@@ -647,7 +542,6 @@
             observer.observe(el);
         });
 
-        // Background Particles - generating a few to give a cool background vibe
         const initParticles = () => {
             const particlesContainer = document.getElementById('particles');
             if(!particlesContainer) return;
@@ -656,7 +550,6 @@
                 let particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                // Randomize positions and speed for a natural feel
                 let size = Math.random() * 20 + 5;
                 let left = Math.random() * 100;
                 let animDuration = Math.random() * 10 + 10;
@@ -672,24 +565,21 @@
             }
         };
         
-        // initialize when DOM is ready
         document.addEventListener('DOMContentLoaded', initParticles);
     </script>
-    
-    <!-- Live Demo Modal -->
-    <div class="demo-modal" id="demoModal">
-        <div class="demo-modal-content">
+
+    <!-- Live Demo Modal Wrapper -->
+    <div class="demo-modal" id="demoModal" onclick="closeDemoModal()">
+        <div class="demo-modal-content" onclick="event.stopPropagation()">
             <div class="demo-modal-header">
-                <h3><i class="fas fa-play-circle" style="color: var(--secondary);"></i> Interactive Video Demo</h3>
+                <h3><i class="fas fa-window-maximize" style="color: var(--secondary);"></i> Live Project Preview</h3>
                 <i class="fas fa-times-circle demo-modal-close" onclick="closeDemoModal()"></i>
             </div>
-            <!-- Empty iframe to be filled dynamically -->
-            <iframe id="demoIframe" src=""></iframe>
+            <iframe id="demoIframe" src="about:blank"></iframe>
         </div>
     </div>
 
     <script>
-        // Modal logic
         const openDemoModal = (url) => {
             const modal = document.getElementById('demoModal');
             const iframe = document.getElementById('demoIframe');
@@ -697,7 +587,6 @@
             iframe.src = url;
             modal.style.display = 'flex';
             
-            // tiny timeout to allow display:flex to apply before animating opacity
             setTimeout(() => modal.classList.add('active'), 10);
             document.body.style.overflow = 'hidden';
         };
@@ -710,10 +599,16 @@
             
             setTimeout(() => {
                 modal.style.display = 'none';
-                iframe.src = '';
-                document.body.style.overflow = 'auto'; // restore scrolling
+                iframe.src = 'about:blank';
+                document.body.style.overflow = 'auto';
             }, 300);
         };
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeDemoModal();
+            }
+        });
     </script>
 </body>
 </html>

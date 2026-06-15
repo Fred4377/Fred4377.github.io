@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects | Fred Otieno - Full Stack Web Developer</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0a0a0f;
+            --surface-color: #111827;
+            --primary: #1a73e8;
+            --secondary: #00c9ff;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 80px; /* navbar padding */
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--secondary);
+        }
+
+        /* Gradient Text Utility */
+        .text-gradient {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(26, 115, 232, 0.1);
+            border-color: var(--secondary);
+        }
+
+        /* Container & Grid layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        /* Projects Catalog Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: var(--surface-color);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .project-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tags span {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            background: rgba(26, 115, 232, 0.1);
+            color: var(--secondary);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .project-link {
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: var(--secondary);
+        }
+
+        .project-link.live {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 201, 255, 0.25);
+            margin-left: auto;
+        }
+
+        .project-link.live:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 201, 255, 0.4);
+            color: white;
+        }
+
+        /* Live Demo Modal */
+        .demo-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 10, 15, 0.95);
+            z-index: 9999;
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .demo-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .demo-modal-content {
+            width: 90%;
+            height: 85%;
+            background: #000;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+        }
+        .demo-modal-header {
+            background: #1e1e1e;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .demo-modal-header h3 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .demo-modal-close {
+            color: #ff5f56;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .demo-modal-close:hover {
+            transform: scale(1.2);
+        }
+        .demo-modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #fff;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(10, 10, 15, 0.5);
+            margin-top: 60px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                padding: 20px;
+            }
+            nav ul {
+                display: none;
+            }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                <span class="text-gradient">Fred</span> Otieno
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="experience.html">Experience & Skills</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="Fred_Otieno_Resume.pdf" download class="btn btn-outline" style="padding: 6px 15px; font-size: 0.85rem; border-radius: 4px;">
+                <i class="fas fa-download"></i> Resume
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Projects Content -->
+    <div class="container">
+        <h1 class="section-title"><span class="text-gradient">My Projects</span></h1>
+        
+        <div class="project-grid">
+            
+            <!-- 1. ShopEase -->
+            <div class="project-card">
+                <img src="https://fred4377.github.io/shopease/screenshots/preview.png" alt="ShopEase">
+                <h3>ShopEase</h3>
+                <p>Full-stack e-commerce web application customized with a warm cream/forest green retail layout, local Nairobi CBD area delivery configurations, and an interactive Lipa na M-Pesa checkout modal.</p>
+                <div class="tech-tags">
+                    <span>React.js</span><span>Node.js</span><span>Express</span><span>MongoDB</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/shopease" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" onclick="event.preventDefault(); openDemo('https://fred4377.github.io/shopease/', 'ShopEase E-Commerce Storefront')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 2. DashPro Dashboard -->
+            <div class="project-card">
+                <img src="https://fred4377.github.io/dashpro-dashboard/screenshots/preview.png" alt="DashPro Dashboard">
+                <h3>DashPro Dashboard</h3>
+                <p>High-tech admin control dashboard designed in utilitarian Cyberpunk Slate theme. Features real-time log scrolling terminal widget, handwritten post-it todo notes, and custom flat vertical charts.</p>
+                <div class="tech-tags">
+                    <span>React.js</span><span>JavaScript</span><span>Tailwind CSS</span><span>Chart.js</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/dashpro-dashboard" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" onclick="event.preventDefault(); openDemo('https://fred4377.github.io/dashpro-dashboard/', 'DashPro Admin Analytics Panel')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 3. BookEase -->
+            <div class="project-card">
+                <img src="https://fred4377.github.io/bookease/screenshots/preview.png" alt="BookEase">
+                <h3>BookEase</h3>
+                <p>Professional salon appointment booking and reservations system themed in clean Mint Green. Includes localized salon services, slot scheduler calendars, and click-to-chat WhatsApp confirmation checkouts.</p>
+                <div class="tech-tags">
+                    <span>React.js</span><span>Node.js</span><span>Express</span><span>MongoDB</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/bookease" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" onclick="event.preventDefault(); openDemo('https://fred4377.github.io/bookease/', 'BookEase Salon Scheduling Platform')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 4. ChatBotPro -->
+            <div class="project-card">
+                <img src="https://fred4377.github.io/chatbotpro/screenshots/preview.png" alt="ChatBotPro">
+                <h3>ChatBotPro</h3>
+                <p>AI-powered conversational chatbot assistant built in clean Sky Blue messenger layout. Configured with Kenya FAQ context triggers (Mombasa shipping, M-Pesa deposits) and typing delays.</p>
+                <div class="tech-tags">
+                    <span>React.js</span><span>JavaScript</span><span>Tailwind CSS</span><span>AI Integration</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/chatbotpro" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" onclick="event.preventDefault(); openDemo('https://fred4377.github.io/chatbotpro/', 'ChatBotPro AI Assistant')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 5. CCGworkflow -->
+            <div class="project-card">
+                <img src="https://fred4377.github.io/CCGworkflow/screenshots/preview.png" alt="CCGworkflow">
+                <h3>CCGworkflow</h3>
+                <p>A team workflow task management Kanban workspace (Trello-like) designed in Deep Teal, populated with custom portfolio checklist items and team avatar badges.</p>
+                <div class="tech-tags">
+                    <span>TypeScript</span><span>React.js</span><span>CSS3</span><span>Kanban UI</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/CCGworkflow" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" onclick="event.preventDefault(); openDemo('https://fred4377.github.io/CCGworkflow/', 'CCGworkflow Team Kanban Board')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 6. Barbar Shop -->
+            <div class="project-card">
+                <img src="https://fred4377.github.io/barbar-shop/screenshots/preview.png" alt="Barbar Shop">
+                <h3>Barbar Shop</h3>
+                <p>Vintage retro barbershop landing page styled in Espresso and Cream. Integrates shift checkouts showing barber availability boards, services catalogue, and KSh pricing index.</p>
+                <div class="tech-tags">
+                    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive UX</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/barbar-shop" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" onclick="event.preventDefault(); openDemo('https://fred4377.github.io/barbar-shop/', 'Elite Cuts Barbershop Website')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 7. Hotel -->
+            <div class="project-card">
+                <img src="https://fred4377.github.io/Hotel/screenshots/preview.png" alt="Grand Horizon Hotel">
+                <h3>Hotel</h3>
+                <p>Luxury resort booking portal for coastal and safari lodges themed in Gold & Deep Emerald. Features room portfolios, booking forms, and Safaricom STK checkout deposit slots.</p>
+                <div class="tech-tags">
+                    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Animate.css</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/Hotel" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" onclick="event.preventDefault(); openDemo('https://fred4377.github.io/Hotel/', 'Grand Horizon Hotel Luxury Portal')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 8. Obachi Mobile Shop -->
+            <div class="project-card">
+                <img src="https://fred4377.github.io/project/screenshots/preview.png" alt="Obachi Mobile Shop">
+                <h3>Obachi Mobile Shop</h3>
+                <p>Carbon Grey & Electric Cyan dark-themed e-commerce store for popular mobile smartphones in Kenya. Features detailed specifications grids and Nairobi CBD same-day delivery notices.</p>
+                <div class="tech-tags">
+                    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Carbon Theme</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/project" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" onclick="event.preventDefault(); openDemo('https://fred4377.github.io/project/', 'Obachi Mobile Shop Storefront')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 9. ThemeStore Templates -->
+            <div class="project-card">
+                <img src="https://fred4377.github.io/theme-/screenshots/preview.png" alt="ThemeStore Templates">
+                <h3>ThemeStore Templates</h3>
+                <p>Nordic light storefront in Sage & Terracotta showcasing premium web design templates, integrating M-Pesa STK simulations, and styled developer details.</p>
+                <div class="tech-tags">
+                    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Nordic Theme</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/theme-" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" onclick="event.preventDefault(); openDemo('https://fred4377.github.io/theme-/', 'ThemeStore Template Marketplace')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 10. FredVA Admin Dashboard -->
+            <div class="project-card">
+                <img src="https://fred4377.github.io/-fredva-admin-dashboard-bot/screenshots/preview.png" alt="FredVA Bot Dashboard">
+                <h3>FredVA Admin Dashboard</h3>
+                <p>High-tech admin bot suite styled in Velvet and Gold. Features live metrics, retro interactive command console, email broadcasters, lead scrapers, and transaction logs audits.</p>
+                <div class="tech-tags">
+                    <span>TypeScript</span><span>Next.js</span><span>React.js</span><span>Tailwind CSS</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/-fredva-admin-dashboard-bot" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" onclick="event.preventDefault(); openDemo('https://fred4377.github.io/-fredva-admin-dashboard-bot/', 'FredVA Bot Control Suite')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Live Demo Modal iframe wrapper -->
+    <div id="demoModal" class="demo-modal" onclick="closeDemo()">
+        <div class="demo-modal-content" onclick="event.stopPropagation()">
+            <div class="demo-modal-header">
+                <h3 id="demoTitle"><i class="fas fa-window-maximize"></i> Live Demo</h3>
+                <span class="demo-modal-close" onclick="closeDemo()">&times;</span>
+            </div>
+            <iframe id="demoIframe" src="about:blank"></iframe>
+        </div>
+    </div>
+
+    <!-- Live Demo Controller scripts -->
+    <script>
+        function openDemo(url, title) {
+            const modal = document.getElementById('demoModal');
+            const iframe = document.getElementById('demoIframe');
+            const titleEl = document.getElementById('demoTitle');
+            
+            iframe.src = url;
+            titleEl.innerHTML = `<i class="fas fa-window-maximize"></i> ${title}`;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeDemo() {
+            const modal = document.getElementById('demoModal');
+            const iframe = document.getElementById('demoIframe');
+            
+            modal.classList.remove('active');
+            iframe.src = 'about:blank';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeDemo();
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="padding: 0 20px;">
+            <p>&copy; 2026 Fred Otieno. Built from scratch with HTML, CSS, and JS. Pushed to <a href="https://github.com/Fred4377" target="_blank">GitHub</a>.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

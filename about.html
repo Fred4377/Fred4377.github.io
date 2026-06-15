@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Fred Otieno - Full Stack Web Developer</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0a0a0f;
+            --surface-color: #111827;
+            --primary: #1a73e8;
+            --secondary: #00c9ff;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 80px; /* navbar padding */
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--secondary);
+        }
+
+        /* Gradient Text Utility */
+        .text-gradient {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 201, 255, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(26, 115, 232, 0.1);
+            border-color: var(--secondary);
+        }
+
+        /* Container & Grid layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+            align-items: start;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: var(--text-main);
+        }
+
+        /* Card panels */
+        .card {
+            background: var(--surface-color);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3 i {
+            color: var(--secondary);
+        }
+
+        /* Timeline Styles */
+        .education-list {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid rgba(255,255,255,0.05);
+            margin-left: 10px;
+        }
+
+        .education-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--secondary);
+            border: 2px solid var(--bg-color);
+        }
+
+        .edu-date {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .edu-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .edu-school {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        /* Soft Skills List */
+        .skills-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .skills-list li {
+            font-size: 1rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skills-list li i {
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(10, 10, 15, 0.5);
+            margin-top: 60px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            nav {
+                padding: 20px;
+            }
+            nav ul {
+                display: none; /* simple hidden links on mobile for static preview */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                <span class="text-gradient">Fred</span> Otieno
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="experience.html">Experience & Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="Fred_Otieno_Resume.pdf" download class="btn btn-outline" style="padding: 6px 15px; font-size: 0.85rem; border-radius: 4px;">
+                <i class="fas fa-download"></i> Resume
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main About Content -->
+    <div class="container">
+        <h1 class="section-title"><span class="text-gradient">About Me</span></h1>
+        
+        <div class="about-grid">
+            
+            <div class="about-text">
+                <p>Hello! I'm <strong>Fred Otieno</strong>, a dedicated Full-Stack Web Developer based in Nairobi, Kenya. With a deep passion for writing clean, efficient, and robust code, I specialize in crafting modern, high-performance web applications that bridge visual aesthetics with rock-solid backend infrastructure.</p>
+                
+                <p>My technical journey is built on structured education and hands-on client deployments. I specialize in the <strong>MERN Stack (MongoDB, Express.js, React.js, Node.js)</strong>, TypeScript, and responsive CSS architectures. From building luxury, interactive lodge booking portals to dense cyberpunk-themed analytics dashboards, I treat coding as a craft that demands constant refinement and detail.</p>
+                
+                <p>As a developer, my philosophy is simple: **user experience is paramount**. I strive to build software that not only operates flawlessly under the hood but feels organic, responsive, and natural to the end user. I actively integrate third-party APIs (like Lipa na M-Pesa STK push checkouts) and specialize in adapting sites for fast load speeds, clean typography, and search engine optimizations.</p>
+                
+                <div style="margin-top: 30px;">
+                    <a href="Fred_Otieno_Resume.pdf" download class="btn btn-primary">
+                        <i class="fas fa-file-pdf"></i> Download Full Resume (PDF)
+                    </a>
+                </div>
+            </div>
+
+            <div class="about-cards">
+                
+                <!-- Education Card -->
+                <div class="card">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <div class="education-list">
+                        <div class="education-item">
+                            <div class="edu-date">2023 – Present</div>
+                            <div class="edu-title">Software Development / Full Stack Web Development</div>
+                            <div class="edu-school">Inceptor Institute of Technology — Nairobi, Kenya</div>
+                        </div>
+                        <div class="education-item">
+                            <div class="edu-date">2021 – 2023</div>
+                            <div class="edu-title">Certificate in Information Communication Technology (ICT)</div>
+                            <div class="edu-school">Nyakach Technical and Vocational College (TVC) — Nyakach, Kenya</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional & Soft Skills Card -->
+                <div class="card">
+                    <h3><i class="fas fa-handshake"></i> Soft Skills & Focus</h3>
+                    <p style="font-size: 1rem; margin-bottom: 15px;">Skills that make collaboration smooth and project deliveries successful:</p>
+                    <ul class="skills-list">
+                        <li><i class="fas fa-check-circle"></i> Client Requirements</li>
+                        <li><i class="fas fa-check-circle"></i> Time Management</li>
+                        <li><i class="fas fa-check-circle"></i> Active Debugging</li>
+                        <li><i class="fas fa-check-circle"></i> Self-Motivated</li>
+                        <li><i class="fas fa-check-circle"></i> Team Collaboration</li>
+                        <li><i class="fas fa-check-circle"></i> Deadline Adherence</li>
+                    </ul>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="padding: 0 20px;">
+            <p>&copy; 2026 Fred Otieno. Built from scratch with HTML, CSS, and JS. Pushed to <a href="https://github.com/Fred4377" target="_blank">GitHub</a>.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
