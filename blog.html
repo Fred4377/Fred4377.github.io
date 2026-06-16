@@ -589,6 +589,30 @@
                 font-size: 1.6rem;
             }
         }
+    
+        /* Professional Blog Badge */
+        .blog-badge {
+            background: linear-gradient(135deg, #ff007a, #7c3aed);
+            color: white;
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 800;
+            margin-left: 5px;
+            vertical-align: middle;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 8px rgba(255, 0, 122, 0.4);
+            animation: pulseBadge 2.2s infinite;
+            display: inline-block;
+        }
+
+        @keyframes pulseBadge {
+            0% { transform: scale(1); box-shadow: 0 0 8px rgba(255, 0, 122, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 12px rgba(255, 0, 122, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 0 8px rgba(255, 0, 122, 0.4); }
+        }
+
     </style>
 </head>
 <body>
@@ -605,7 +629,7 @@
             <li><a href="about.html">About</a></li>
             <li><a href="experience.html">Experience & Skills</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="blog.html" class="active">Blog<span class="blog-badge">New</span></a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
         <div style="display: flex; align-items: center; gap: 15px;">

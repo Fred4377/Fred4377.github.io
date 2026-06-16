@@ -325,6 +325,30 @@
                 grid-template-columns: 1fr;
             }
         }
+    
+        /* Professional Blog Badge */
+        .blog-badge {
+            background: linear-gradient(135deg, #ff007a, #7c3aed);
+            color: white;
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 800;
+            margin-left: 5px;
+            vertical-align: middle;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 8px rgba(255, 0, 122, 0.4);
+            animation: pulseBadge 2.2s infinite;
+            display: inline-block;
+        }
+
+        @keyframes pulseBadge {
+            0% { transform: scale(1); box-shadow: 0 0 8px rgba(255, 0, 122, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 12px rgba(255, 0, 122, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 0 8px rgba(255, 0, 122, 0.4); }
+        }
+
     </style>
 </head>
 <body>
@@ -341,7 +365,7 @@
             <li><a href="about.html">About</a></li>
             <li><a href="experience.html">Experience & Skills</a></li>
             <li><a href="projects.html" class="active">Projects</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog.html">Blog<span class="blog-badge">New</span></a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
         <div style="display: flex; align-items: center; gap: 15px;">
@@ -359,7 +383,7 @@
             
             <!-- 1. ShopEase -->
             <div class="project-card">
-                <img src="https://fred4377.github.io/shopease/screenshots/preview.png" alt="ShopEase">
+                <img src="screenshots/shopease.png" alt="ShopEase">
                 <h3>ShopEase</h3>
                 <p>Full-stack e-commerce web application customized with a warm cream/forest green retail layout, local Nairobi CBD area delivery configurations, and an interactive Lipa na M-Pesa checkout modal.</p>
                 <div class="tech-tags">
@@ -373,7 +397,7 @@
 
             <!-- 2. DashPro Dashboard -->
             <div class="project-card">
-                <img src="https://fred4377.github.io/dashpro-dashboard/screenshots/preview.png" alt="DashPro Dashboard">
+                <img src="screenshots/dashpro.png" alt="DashPro Dashboard">
                 <h3>DashPro Dashboard</h3>
                 <p>High-tech admin control dashboard designed in utilitarian Cyberpunk Slate theme. Features real-time log scrolling terminal widget, handwritten post-it todo notes, and custom flat vertical charts.</p>
                 <div class="tech-tags">
@@ -387,7 +411,7 @@
 
             <!-- 3. BookEase -->
             <div class="project-card">
-                <img src="https://fred4377.github.io/bookease/screenshots/preview.png" alt="BookEase">
+                <img src="screenshots/bookease.png" alt="BookEase">
                 <h3>BookEase</h3>
                 <p>Professional salon appointment booking and reservations system themed in clean Mint Green. Includes localized salon services, slot scheduler calendars, and click-to-chat WhatsApp confirmation checkouts.</p>
                 <div class="tech-tags">
@@ -401,7 +425,7 @@
 
             <!-- 4. ChatBotPro -->
             <div class="project-card">
-                <img src="https://fred4377.github.io/chatbotpro/screenshots/preview.png" alt="ChatBotPro">
+                <img src="screenshots/chatbotpro.png" alt="ChatBotPro">
                 <h3>ChatBotPro</h3>
                 <p>AI-powered conversational chatbot assistant built in clean Sky Blue messenger layout. Configured with Kenya FAQ context triggers (Mombasa shipping, M-Pesa deposits) and typing delays.</p>
                 <div class="tech-tags">
@@ -415,7 +439,7 @@
 
             <!-- 5. CCGworkflow -->
             <div class="project-card">
-                <img src="https://fred4377.github.io/CCGworkflow/screenshots/preview.png" alt="CCGworkflow">
+                <img src="screenshots/ccgworkflow.png" alt="CCGworkflow">
                 <h3>CCGworkflow</h3>
                 <p>A team workflow task management Kanban workspace (Trello-like) designed in Deep Teal, populated with custom portfolio checklist items and team avatar badges.</p>
                 <div class="tech-tags">
@@ -429,7 +453,7 @@
 
             <!-- 6. Barbar Shop -->
             <div class="project-card">
-                <img src="https://fred4377.github.io/barbar-shop/screenshots/preview.png" alt="Barbar Shop">
+                <img src="screenshots/barbar_shop.png" alt="Barbar Shop">
                 <h3>Barbar Shop</h3>
                 <p>Vintage retro barbershop landing page styled in Espresso and Cream. Integrates shift checkouts showing barber availability boards, services catalogue, and KSh pricing index.</p>
                 <div class="tech-tags">
@@ -443,7 +467,7 @@
 
             <!-- 7. Hotel -->
             <div class="project-card">
-                <img src="https://fred4377.github.io/Hotel/screenshots/preview.png" alt="Grand Horizon Hotel">
+                <img src="screenshots/hotel.png" alt="Grand Horizon Hotel">
                 <h3>Hotel</h3>
                 <p>Luxury resort booking portal for coastal and safari lodges themed in Gold & Deep Emerald. Features room portfolios, booking forms, and Safaricom STK checkout deposit slots.</p>
                 <div class="tech-tags">
@@ -457,7 +481,7 @@
 
             <!-- 8. Obachi Mobile Shop -->
             <div class="project-card">
-                <img src="https://fred4377.github.io/project/screenshots/preview.png" alt="Obachi Mobile Shop">
+                <img src="screenshots/obachi_mobile.png" alt="Obachi Mobile Shop">
                 <h3>Obachi Mobile Shop</h3>
                 <p>Carbon Grey & Electric Cyan dark-themed e-commerce store for popular mobile smartphones in Kenya. Features detailed specifications grids and Nairobi CBD same-day delivery notices.</p>
                 <div class="tech-tags">
@@ -471,7 +495,7 @@
 
             <!-- 9. ThemeStore Templates -->
             <div class="project-card">
-                <img src="https://fred4377.github.io/theme-/screenshots/preview.png" alt="ThemeStore Templates">
+                <img src="screenshots/themestore.png" alt="ThemeStore Templates">
                 <h3>ThemeStore Templates</h3>
                 <p>Nordic light storefront in Sage & Terracotta showcasing premium web design templates, integrating M-Pesa STK simulations, and styled developer details.</p>
                 <div class="tech-tags">
@@ -485,7 +509,7 @@
 
             <!-- 10. FredVA Admin Dashboard -->
             <div class="project-card">
-                <img src="https://fred4377.github.io/-fredva-admin-dashboard-bot/screenshots/preview.png" alt="FredVA Bot Dashboard">
+                <img src="screenshots/fredva_dashboard.png" alt="FredVA Bot Dashboard">
                 <h3>FredVA Admin Dashboard</h3>
                 <p>High-tech admin bot suite styled in Velvet and Gold. Features live metrics, retro interactive command console, email broadcasters, lead scrapers, and transaction logs audits.</p>
                 <div class="tech-tags">
