@@ -5,19 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me | Fred Otieno - Full Stack Web Developer</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Modern Design System & Variables - Luxury Sand/Linen Theme */
         :root {
-            --bg-color: #f8fafc;
+            --primary: #0a192f;
+            --secondary: #d4af37;
+            --bg-color: #faf8f5;
             --surface-color: #ffffff;
-            --primary: #2563eb;
-            --secondary: #0d9488;
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --border-color: rgba(15, 23, 42, 0.08);
-            --shadow-color: rgba(15, 23, 42, 0.04);
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #eae5df;
+            --shadow-color: rgba(10, 25, 47, 0.04);
+            --font-main: 'Outfit', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         * {
@@ -28,52 +32,14 @@
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
+            font-family: var(--font-main);
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
             padding-top: 80px; /* navbar padding */
         }
-
-        /* Navbar */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav ul li a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover, nav ul li a.active {
-            color: var(--secondary);
-        }
-
+        
         /* Gradient Text Utility */
         .text-gradient {
             background: linear-gradient(to right, var(--primary), var(--secondary));
@@ -81,210 +47,78 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .btn {
-            padding: 10px 25px;
-            border-radius: 30px;
+        /* Sticky Glassmorphic Navbar (Unified Dark Theme) */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition-smooth);
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        nav .logo a {
+            color: #ffffff;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
         }
 
-        .btn-primary {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);
+        nav .logo span {
+            background: linear-gradient(to right, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 201, 255, 0.5);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: rgba(26, 115, 232, 0.1);
-            border-color: var(--secondary);
-        }
-
-        /* Container & Grid layout */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 60px;
-            margin-top: 40px;
-            align-items: start;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 50px;
-            height: 3px;
-            background: var(--secondary);
-        }
-
-        p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        strong {
-            color: var(--text-main);
-        }
-
-        /* Card panels */
-        .card {
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-            margin-bottom: 30px;
-        }
-
-        .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            color: var(--text-main);
+        nav ul {
             display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .card h3 i {
-            color: var(--secondary);
-        }
-
-        /* Timeline Styles */
-        .education-list {
-            position: relative;
-            padding-left: 20px;
-            border-left: 2px solid var(--border-color);
-            margin-left: 10px;
-        }
-
-        .education-item {
-            position: relative;
-            margin-bottom: 25px;
-        }
-
-        .education-item::before {
-            content: '';
-            position: absolute;
-            left: -27px;
-            top: 6px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--secondary);
-            border: 2px solid var(--bg-color);
-        }
-
-        .edu-date {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.9rem;
-            color: var(--secondary);
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .edu-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .edu-school {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-
-        /* Soft Skills List */
-        .skills-list {
             list-style: none;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .skills-list li {
-            font-size: 1rem;
-            color: var(--text-muted);
-            display: flex;
+            gap: 30px;
             align-items: center;
-            gap: 10px;
         }
 
-        .skills-list li i {
-            color: var(--secondary);
-        }
-
-        /* Footer */
-        footer {
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            background: #f1f5f9;
-            margin-top: 60px;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        footer a {
-            color: var(--secondary);
+        nav ul li a {
+            color: #e2e8f0;
             text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding: 5px 0;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00f2fe;
+            transition: var(--transition-smooth);
         }
 
-        /* Responsive */
-        @media (max-width: 968px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            nav {
-                padding: 20px;
-            }
-            nav ul {
-                display: none; /* simple hidden links on mobile for static preview */
-            }
+        nav ul li a:hover::after, nav ul li a.active::after {
+            width: 100%;
         }
-    
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #00f2fe;
+        }
+
         /* Professional Blog Badge */
         .blog-badge {
             background: linear-gradient(135deg, #ff007a, #7c3aed);
@@ -308,15 +142,250 @@
             100% { transform: scale(1); box-shadow: 0 0 8px rgba(255, 0, 122, 0.4); }
         }
 
+        /* Container layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            position: relative;
+            color: var(--primary);
+            font-style: italic;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 60px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        /* About Grid Layout */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+            align-items: start;
+        }
+
+        p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Bento-style white card panels */
+        .card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 25px var(--shadow-color);
+            margin-bottom: 30px;
+            transition: var(--transition-smooth);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(10, 25, 47, 0.08);
+            border-color: var(--secondary);
+        }
+
+        .card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-style: italic;
+            border-bottom: 1px solid #f3ece2;
+            padding-bottom: 12px;
+        }
+
+        .card h3 i {
+            color: var(--secondary);
+            font-size: 1.3rem;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 13px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(10, 25, 47, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(10, 25, 47, 0.45);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 0;
+            padding: 14px 35px;
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            text-transform: lowercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 8px 25px rgba(10, 25, 47, 0.15);
+        }
+
+        /* Luxury Timeline list */
+        .education-list {
+            position: relative;
+            padding-left: 25px;
+            border-left: 1px solid var(--border-color);
+            margin-left: 10px;
+        }
+
+        .education-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 7px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--secondary);
+            border: 2px solid var(--surface-color);
+        }
+
+        .edu-date {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .edu-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .edu-school {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Gold-accented list checkmarks */
+        .skills-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .skills-list li {
+            font-size: 1rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 300;
+        }
+
+        .skills-list li i {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background: #eae5df;
+            margin-top: 60px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin: 0;
+            font-weight: 400;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            nav {
+                padding: 18px 20px;
+            }
+            nav ul {
+                display: none;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
+    <!-- Sticky Navigation Bar -->
     <nav>
         <div class="logo">
-            <a href="index.html" style="color: inherit; text-decoration: none;">
-                <span class="text-gradient">Fred</span> Otieno
+            <a href="index.html">
+                <span>Fred</span>&nbsp;Otieno
             </a>
         </div>
         <ul>
@@ -328,15 +397,15 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="Fred_Otieno_Resume.pdf" download class="btn btn-outline" style="padding: 6px 15px; font-size: 0.85rem; border-radius: 4px;">
-                <i class="fas fa-download"></i> Resume
+            <a href="Fred_Otieno_Resume.pdf" download class="btn" style="padding: 6px 15px; font-size: 0.85rem; border-radius: 4px; border: 1px solid #00f2fe; color: #ffffff; background: rgba(0, 242, 254, 0.05);">
+                <i class="fas fa-download" style="color: #00f2fe;"></i> Resume
             </a>
         </div>
     </nav>
 
     <!-- Main About Content -->
     <div class="container">
-        <h1 class="section-title"><span class="text-gradient">About Me</span></h1>
+        <h1 class="section-title">About Me</h1>
         
         <div class="about-grid">
             
@@ -345,11 +414,11 @@
                 
                 <p>My technical journey is built on structured education and hands-on client deployments. I specialize in the <strong>MERN Stack (MongoDB, Express.js, React.js, Node.js)</strong>, TypeScript, and responsive CSS architectures. From building luxury, interactive lodge booking portals to dense cyberpunk-themed analytics dashboards, I treat coding as a craft that demands constant refinement and detail.</p>
                 
-                <p>As a developer, my philosophy is simple: **user experience is paramount**. I strive to build software that not only operates flawlessly under the hood but feels organic, responsive, and natural to the end user. I actively integrate third-party APIs (like Lipa na M-Pesa STK push checkouts) and specialize in adapting sites for fast load speeds, clean typography, and search engine optimizations.</p>
+                <p>As a developer, my philosophy is simple: <strong>user experience is paramount</strong>. I strive to build software that not only operates flawlessly under the hood but feels organic, responsive, and natural to the end user. I actively integrate third-party APIs (like Lipa na M-Pesa STK push checkouts) and specialize in adapting sites for fast load speeds, clean typography, and search engine optimizations.</p>
                 
-                <div style="margin-top: 30px;">
+                <div style="margin-top: 35px;">
                     <a href="Fred_Otieno_Resume.pdf" download class="btn btn-primary">
-                        <i class="fas fa-file-pdf"></i> Download Full Resume (PDF)
+                        <i class="fas fa-file-pdf"></i> Download Resume (PDF)
                     </a>
                 </div>
             </div>
@@ -376,7 +445,7 @@
                 <!-- Professional & Soft Skills Card -->
                 <div class="card">
                     <h3><i class="fas fa-handshake"></i> Soft Skills & Focus</h3>
-                    <p style="font-size: 1rem; margin-bottom: 15px;">Skills that make collaboration smooth and project deliveries successful:</p>
+                    <p style="font-size: 1rem; margin-bottom: 15px; font-weight: 400; color: var(--primary);">Skills that make collaboration smooth and project deliveries successful:</p>
                     <ul class="skills-list">
                         <li><i class="fas fa-check-circle"></i> Client Requirements</li>
                         <li><i class="fas fa-check-circle"></i> Time Management</li>
@@ -395,7 +464,7 @@
     <!-- Footer -->
     <footer>
         <div class="container" style="padding: 0 20px;">
-            <p>&copy; 2026 Fred Otieno. Built from scratch with HTML, CSS, and JS. Pushed to <a href="https://github.com/Fred4377" target="_blank">GitHub</a>.</p>
+            <p>&copy; 2026 Fred Otieno. Built with 💻 and ☕ in Nairobi, Kenya. Pushed to <a href="https://github.com/Fred4377" target="_blank">GitHub</a>.</p>
         </div>
     </footer>
 
