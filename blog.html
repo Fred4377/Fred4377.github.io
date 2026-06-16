@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Fred Otieno - Full Stack Web Developer</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0a0a0f;
+            --surface-color: #111827;
+            --primary: #1a73e8;
+            --secondary: #00c9ff;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent-glow: rgba(0, 201, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 80px; /* navbar padding */
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--secondary);
+        }
+
+        /* Gradient Text Utility */
+        .text-gradient {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 201, 255, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(26, 115, 232, 0.1);
+            border-color: var(--secondary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        /* Hero / Header Section */
+        .blog-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .blog-header p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 15px auto 0;
+        }
+
+        /* Search & Filters Controls */
+        .blog-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: var(--surface-color);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 14px 20px 14px 50px;
+            font-size: 1rem;
+            color: var(--text-main);
+            font-family: inherit;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            color: white;
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: var(--surface-color);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        /* Cover image style (custom design gradient) */
+        .blog-cover {
+            height: 200px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .blog-cover::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+            opacity: 0.25;
+            filter: blur(20px);
+        }
+
+        .blog-cover i.cover-icon {
+            font-size: 4.5rem;
+            color: rgba(255, 255, 255, 0.85);
+            z-index: 1;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: transform 0.4s ease;
+        }
+
+        .blog-card:hover .blog-cover i.cover-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .blog-meta {
+            padding: 20px 25px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .blog-meta .date-wrap {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .blog-content {
+            padding: 15px 25px 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .blog-content h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            line-height: 1.4;
+            transition: color 0.3s;
+        }
+
+        .blog-card:hover .blog-content h3 {
+            color: var(--secondary);
+        }
+
+        .blog-content p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .blog-tags span {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .read-btn {
+            background: transparent;
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+        }
+
+        .read-btn:hover {
+            background: var(--secondary);
+            color: var(--bg-color);
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, rgba(26, 115, 232, 0.05) 0%, rgba(0, 201, 255, 0.05) 100%);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section h3 {
+            font-size: 1.75rem;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-section p {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            background: var(--surface-color);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 12px 20px;
+            color: var(--text-main);
+            outline: none;
+            font-family: inherit;
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--secondary);
+        }
+
+        .newsletter-form button {
+            border-radius: 30px;
+            border: none;
+            padding: 0 25px;
+            cursor: pointer;
+        }
+
+        /* Article Reader Modal */
+        .article-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 10, 15, 0.95);
+            z-index: 9999;
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .article-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .article-modal-content {
+            width: 90%;
+            max-width: 800px;
+            height: 85%;
+            background: var(--surface-color);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-modal-header {
+            background: rgba(10, 10, 15, 0.5);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .article-modal-header h3 {
+            font-size: 1.2rem;
+            color: #fff;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 85%;
+        }
+
+        .article-modal-close {
+            color: #ff5f56;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .article-modal-close:hover {
+            transform: scale(1.15);
+        }
+
+        .article-modal-body {
+            padding: 40px 30px;
+            overflow-y: auto;
+            flex-grow: 1;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #d1d5db;
+        }
+
+        .article-modal-body h1 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .article-modal-body .modal-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 15px;
+        }
+
+        .article-modal-body h2 {
+            color: white;
+            font-size: 1.4rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+
+        .article-modal-body p {
+            margin-bottom: 20px;
+        }
+
+        .article-modal-body code {
+            font-family: 'Fira Code', monospace;
+            background: rgba(0,0,0,0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+
+        .article-modal-body pre {
+            background: #07070a;
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 25px;
+            margin-top: 15px;
+        }
+
+        .article-modal-body pre code {
+            background: transparent;
+            padding: 0;
+            color: #f3f4f6;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(10, 10, 15, 0.5);
+            margin-top: 60px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            nav {
+                padding: 20px;
+            }
+            nav ul {
+                display: none;
+            }
+            .newsletter-form {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .newsletter-form button {
+                padding: 12px 25px;
+            }
+            .article-modal-body {
+                padding: 25px 20px;
+            }
+            .article-modal-body h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                <span class="text-gradient">Fred</span> Otieno
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="experience.html">Experience & Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="Fred_Otieno_Resume.pdf" download class="btn btn-outline" style="padding: 6px 15px; font-size: 0.85rem; border-radius: 4px;">
+                <i class="fas fa-download"></i> Resume
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <header class="blog-header">
+            <h1 class="section-title"><span class="text-gradient">The Developer Journal</span></h1>
+            <p>Insights, tutorials, and engineering experiences in Full-Stack web development, clean architecture, and API integration.</p>
+        </header>
+
+        <!-- Search and Category Filters -->
+        <div class="blog-controls">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" oninput="filterArticles()" placeholder="Search articles by title or tag...">
+            </div>
+            
+            <div class="category-filters">
+                <button class="filter-btn active" onclick="filterCategory('all', this)">All Articles</button>
+                <button class="filter-btn" onclick="filterCategory('backend', this)">Backend & APIs</button>
+                <button class="filter-btn" onclick="filterCategory('frontend', this)">Frontend Tech</button>
+                <button class="filter-btn" onclick="filterCategory('architecture', this)">Software Architecture</button>
+            </div>
+        </div>
+
+        <!-- Blog Catalog Grid -->
+        <div class="blog-grid" id="blogGrid">
+            
+            <!-- Article 1 -->
+            <div class="blog-card" data-category="backend" data-tags="#nodejs,#mpesa,#api,#backend">
+                <div class="blog-cover">
+                    <i class="fas fa-wallet cover-icon" style="color: #4ade80;"></i>
+                </div>
+                <div class="blog-meta">
+                    <div class="date-wrap"><i class="far fa-calendar"></i> June 12, 2026</div>
+                    <div><i class="far fa-clock"></i> 8 min read</div>
+                </div>
+                <div class="blog-content">
+                    <h3>Integrating Lipa na M-Pesa STK Push in MERN Apps</h3>
+                    <p>A comprehensive technical walkthrough of connecting Safaricom's Daraja API, generating access tokens, constructing request bodies, and securing incoming callback hooks.</p>
+                    <div class="blog-tags">
+                        <span>#nodejs</span><span>#mpesa</span><span>#api</span><span>#backend</span>
+                    </div>
+                    <button class="read-btn" onclick="openArticle('mpesa')"><i class="fas fa-book-open"></i> Read Article</button>
+                </div>
+            </div>
+
+            <!-- Article 2 -->
+            <div class="blog-card" data-category="frontend" data-tags="#vite,#react,#bundling,#frontend">
+                <div class="blog-cover">
+                    <i class="fas fa-bolt cover-icon" style="color: #fbbf24;"></i>
+                </div>
+                <div class="blog-meta">
+                    <div class="date-wrap"><i class="far fa-calendar"></i> May 28, 2026</div>
+                    <div><i class="far fa-clock"></i> 5 min read</div>
+                </div>
+                <div class="blog-content">
+                    <h3>Transitioning to Vite 8 & Rolldown Bundling</h3>
+                    <p>Discover how Vite 8 leverages Rolldown, a unified Rust bundler, to achieve blazing fast build processes and hot module replacements, and how to optimize your bundle configs.</p>
+                    <div class="blog-tags">
+                        <span>#vite</span><span>#react</span><span>#bundling</span><span>#frontend</span>
+                    </div>
+                    <button class="read-btn" onclick="openArticle('vite')"><i class="fas fa-book-open"></i> Read Article</button>
+                </div>
+            </div>
+
+            <!-- Article 3 -->
+            <div class="blog-card" data-category="architecture" data-tags="#architecture,#express,#nodejs,#patterns">
+                <div class="blog-cover">
+                    <i class="fas fa-sitemap cover-icon" style="color: #3b82f6;"></i>
+                </div>
+                <div class="blog-meta">
+                    <div class="date-wrap"><i class="far fa-calendar"></i> May 15, 2026</div>
+                    <div><i class="far fa-clock"></i> 10 min read</div>
+                </div>
+                <div class="blog-content">
+                    <h3>Applying Clean Architecture in Node.js Express APIs</h3>
+                    <p>Say goodbye to spaghetti routes. Learn how to segregate domain entities, business use cases, interface controllers, and database adapters for testability and scale.</p>
+                    <div class="blog-tags">
+                        <span>#architecture</span><span>#express</span><span>#nodejs</span><span>#patterns</span>
+                    </div>
+                    <button class="read-btn" onclick="openArticle('architecture')"><i class="fas fa-book-open"></i> Read Article</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="newsletter-section">
+            <h3>Subscribe to My Newsletter</h3>
+            <p>Get notified when I publish new engineering articles, code templates, or tech stack tutorials. No spam, unsubscribe anytime.</p>
+            <form class="newsletter-form" id="newsletterForm" onsubmit="handleSubscribe(event)">
+                <input type="email" id="subscriberEmail" required placeholder="your.email@example.com">
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Article Reader Modal overlay -->
+    <div id="articleModal" class="article-modal" onclick="closeArticle()">
+        <div class="article-modal-content" onclick="event.stopPropagation()">
+            <div class="article-modal-header">
+                <h3 id="modalTitle">Article Reader</h3>
+                <i class="fas fa-times-circle article-modal-close" onclick="closeArticle()"></i>
+            </div>
+            <div class="article-modal-body" id="modalBody">
+                <!-- Content loaded dynamically by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Contents Data -->
+    <script>
+        const articles = {
+            mpesa: `
+                <h1>Integrating Lipa na M-Pesa STK Push in MERN Applications</h1>
+                <div class="modal-meta">
+                    <span><i class="far fa-calendar"></i> June 12, 2026</span>
+                    <span><i class="far fa-clock"></i> 8 min read</span>
+                    <span><i class="fas fa-tags"></i> Backend, APIs</span>
+                </div>
+                <p>In East Africa, and specifically Kenya, integrating mobile payment methods like Safaricom's M-Pesa is crucial for any successful consumer app. This guide details how to implement the <strong>Lipa na M-Pesa Online API (STK Push)</strong> using Node.js and Express.</p>
+                
+                <h2>1. Authorization with Daraja API</h2>
+                <p>Before triggering any payment requests, you must authenticate your credentials (Consumer Key and Consumer Secret) to obtain an OAuth access token. The token expires in 3600 seconds, so caching it is recommended.</p>
+                <pre><code>const axios = require('axios');
+
+async function getAccessToken(req, res, next) {
+    const consumerKey = process.env.MPESA_CONSUMER_KEY;
+    const consumerSecret = process.env.MPESA_CONSUMER_SECRET;
+    const auth = Buffer.from(\`\${consumerKey}:\${consumerSecret}\`).toString('base64');
+
+    try {
+        const response = await axios.get(
+            'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials',
+            { headers: { Authorization: \`Basic \${auth}\` } }
+        );
+        req.token = response.data.access_token;
+        next();
+    } catch (err) {
+        res.status(500).json({ error: 'Auth failed: ' + err.message });
+    }
+}</code></pre>
+
+                <h2>2. Constructing the STK Push Payload</h2>
+                <p>An STK Push request prompts the user to enter their M-Pesa PIN on their phone. We construct a POST request to Safaricom's endpoint containing transaction parameters:</p>
+                <pre><code>async function triggerStkPush(req, res) {
+    const token = req.token;
+    const phone = req.body.phone; // e.g. 254798666374
+    const amount = req.body.amount;
+    
+    const shortcode = process.env.MPESA_SHORTCODE;
+    const passkey = process.env.MPESA_PASSKEY;
+    const timestamp = new Date().toISOString().replace(/[-:T]/g, '').slice(0, 14);
+    const password = Buffer.from(shortcode + passkey + timestamp).toString('base64');
+    
+    const payload = {
+        BusinessShortCode: shortcode,
+        Password: password,
+        Timestamp: timestamp,
+        TransactionType: "CustomerPayBillOnline",
+        Amount: amount,
+        PartyA: phone,
+        PartyB: shortcode,
+        PhoneNumber: phone,
+        CallBackURL: "https://yourdomain.com/api/payments/callback",
+        AccountReference: "ShopEase Store",
+        TransactionDesc: "Payment for order"
+    };
+
+    try {
+        const response = await axios.post(
+            'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/query',
+            payload,
+            { headers: { Authorization: \`Bearer \${token}\` } }
+        );
+        res.status(200).json(response.data);
+    } catch (err) {
+        res.status(500).json({ error: err.response.data });
+    }
+}</code></pre>
+
+                <h2>3. Securing the Callback URL</h2>
+                <p>Safaricom sends transaction status responses asynchronously to your <code>CallBackURL</code>. It is crucial to check the response <code>ResultCode</code> (0 indicates success) and securely process the payment state in your database.</p>
+                <pre><code>app.post('/api/payments/callback', (req, res) => {
+    const callbackData = req.body.Body.stkCallback;
+    const resultCode = callbackData.ResultCode;
+    const checkoutRequestID = callbackData.CheckoutRequestID;
+    
+    if (resultCode === 0) {
+        const metadata = callbackData.CallbackMetadata.Item;
+        const amount = metadata.find(x => x.Name === 'Amount').Value;
+        const mpesaReceipt = metadata.find(x => x.Name === 'MpesaReceiptNumber').Value;
+        const phone = metadata.find(x => x.Name === 'PhoneNumber').Value;
+        
+        // Update order status in MongoDB
+        console.log(\`Payment Successful! Receipt: \${mpesaReceipt}\`);
+    } else {
+        console.log(\`Payment Failed. Code: \${resultCode}\`);
+    }
+    res.json({ ResultCode: 0, ResultDesc: "Accepted" });
+});</code></pre>
+                <p>Always log full incoming request payloads in production to audit failed attempts and verify payloads using signature checkers where possible.</p>
+            `,
+            vite: `
+                <h1>Transitioning to Vite 8 & Rolldown Bundling</h1>
+                <div class="modal-meta">
+                    <span><i class="far fa-calendar"></i> May 28, 2026</span>
+                    <span><i class="far fa-clock"></i> 5 min read</span>
+                    <span><i class="fas fa-tags"></i> Frontend, Bundlers</span>
+                </div>
+                <p>Front-end developer toolchains are moving rapidly. The biggest leap in recent build performance is **Vite 8** integrating **Rolldown** — a unified, Rust-powered bundler replacing both ESBuild (used for development pre-bundling) and Rollup (used for production compilation).</p>
+
+                <h2>Why Rolldown?</h2>
+                <p>Historically, Vite used two different tools for building: ESBuild in development for speed (transpilation and dependency resolution) and Rollup for production due to its advanced tree-shaking, chunk splitting, and plugin ecosystem. This created a discrepancy: code that compiled fine in development could occasionally behave differently in production.</p>
+                <p>Rolldown resolves this by providing **Rollup-compatible API inputs** written completely in Rust. This enables Vite 8 to utilize a single, extremely optimized bundler for both dev and production, removing behavior inconsistencies while boosting speeds up to 10x compared to Rollup.</p>
+
+                <h2>Transition Steps for React & TypeScript Projects</h2>
+                <p>Most vanilla Vite configs will work out of the box. However, if your <code>vite.config.ts</code> relies on custom Rollup configurations, here is how you prepare:</p>
+                <pre><code>import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+// Vite 8 leverages unified options
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    // Rolldown handles chunk optimizations natively
+    cssCodeSplit: true,
+    minify: 'esbuild', // uses rolldown compiler under-the-hood
+    rollupOptions: {
+      // Avoid legacy Rollup plugins that are not ESM compatible
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom']
+        }
+      }
+    }
+  }
+});</code></pre>
+
+                <h2>Key Benefits</h2>
+                <ul>
+                    <li><strong>Faster cold starts:</strong> Pre-bundling dependencies takes milliseconds.</li>
+                    <li><strong>Consistent builds:</strong> Identical trees and modules resolving rules in both development and production bundles.</li>
+                    <li><strong>Better memory footprint:</strong> Since Rolldown runs in native code, it frees up Node memory overhead, which is incredibly useful for large-scale enterprise deployments.</li>
+                </ul>
+            `,
+            architecture: `
+                <h1>Applying Clean Architecture in Node.js Express APIs</h1>
+                <div class="modal-meta">
+                    <span><i class="far fa-calendar"></i> May 15, 2026</span>
+                    <span><i class="far fa-clock"></i> 10 min read</span>
+                    <span><i class="fas fa-tags"></i> Architecture, Express</span>
+                </div>
+                <p>When starting an Express project, it's tempting to put business logic, db operations, and route handling inside a single router function. But as the application scales, this "spaghetti controller" approach turns codebase maintenance and testing into a nightmare.</p>
+                <p><strong>Clean Architecture</strong> solves this by dividing the software into concentric rings, ensuring that dependencies only point inwards. The core business rules know nothing about express routers, databases, or third-party web APIs.</p>
+
+                <h2>The Three Main Layers</h2>
+                <ol>
+                    <li><strong>Domain Layer (Core):</strong> Houses business models, entities, and validation rules. It is pure JS and has no dependencies.</li>
+                    <li><strong>Use Cases (Application):</strong> Orchestrates flows of data to and from entities. (e.g. <code>CreateOrderUseCase</code>).</li>
+                    <li><strong>Infrastructure Layer (External):</strong> Contains express controllers, routers, MongoDB schemas, repositories, and payment APIs.</li>
+                </ol>
+
+                <h2>Example: Creating a User Entity and Repository</h2>
+                <p>Here is a clean implementation separating the repository from the express router layer.</p>
+                
+                <h3>1. Use Case Layer (Business Rule)</h3>
+                <pre><code>// use-cases/register-user.js
+class RegisterUser {
+    constructor(userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    async execute(userData) {
+        if (!userData.email || !userData.password) {
+            throw new Error("Missing parameters");
+        }
+        
+        // Check duplication
+        const existing = await this.userRepository.findByEmail(userData.email);
+        if (existing) {
+            throw new Error("User already exists");
+        }
+
+        return await this.userRepository.save(userData);
+    }
+}
+module.exports = RegisterUser;</code></pre>
+
+                <h3>2. Controller Layer (Framework Adapter)</h3>
+                <pre><code>// controllers/user-controller.js
+const RegisterUser = require('../use-cases/register-user');
+const MongoUserRepository = require('../infrastructure/mongo-user-repository');
+
+const userRepository = new MongoUserRepository();
+const registerUserUseCase = new RegisterUser(userRepository);
+
+async function handleRegisterUser(req, res) {
+    try {
+        const user = await registerUserUseCase.execute(req.body);
+        res.status(201).json(user);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+}
+module.exports = { handleRegisterUser };</code></pre>
+
+                <h3>3. Router Layer (Express Config)</h3>
+                <pre><code>// routes/user-routes.js
+const express = require('express');
+const { handleRegisterUser } = require('../controllers/user-controller');
+
+const router = express.Router();
+router.post('/register', handleRegisterUser);
+
+module.exports = router;</code></pre>
+
+                <h2>Summary of Advantages</h2>
+                <p>By keeping the domain clean, you can swap MongoDB for PostgreSQL without touching any business logic in <code>RegisterUser</code>. It also allows you to write mock user repositories and test use cases easily without spinning up local database connections during CI/CD test phases.</p>
+            `
+        };
+
+        const openArticle = (id) => {
+            const modal = document.getElementById('articleModal');
+            const body = document.getElementById('modalBody');
+            const title = document.getElementById('modalTitle');
+            
+            if (articles[id]) {
+                body.innerHTML = articles[id];
+                modal.style.display = 'flex';
+                setTimeout(() => modal.classList.add('active'), 10);
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        const closeArticle = () => {
+            const modal = document.getElementById('articleModal');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        };
+
+        // Filter functionality
+        const filterCategory = (category, btn) => {
+            // Remove active from all buttons
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const cards = document.querySelectorAll('.blog-card');
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        };
+
+        // Live text filter search
+        const filterArticles = () => {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.blog-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('.blog-content h3').textContent.toLowerCase();
+                const tags = card.getAttribute('data-tags').toLowerCase();
+                const desc = card.querySelector('.blog-content p').textContent.toLowerCase();
+                
+                if (title.includes(query) || tags.includes(query) || desc.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        };
+
+        const handleSubscribe = (e) => {
+            e.preventDefault();
+            const email = document.getElementById('subscriberEmail').value;
+            alert(`Awesome! ${email} has been subscribed to Fred's engineering logs feed.`);
+            document.getElementById('newsletterForm').reset();
+        };
+
+        // Escape closes reader modal
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeArticle();
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="padding: 0 20px;">
+            <p>&copy; 2026 Fred Otieno. Built from scratch with HTML, CSS, and JS. Pushed to <a href="https://github.com/Fred4377" target="_blank">GitHub</a>.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
