@@ -10,14 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #f8fafc;
-            --surface-color: #ffffff;
-            --primary: #2563eb;
-            --secondary: #0d9488;
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --border-color: rgba(15, 23, 42, 0.08);
-            --shadow-color: rgba(15, 23, 42, 0.04);
+            --primary: #00d2ff;
+            --secondary: #00ffaa;
+            --bg-color: #060711;
+            --surface-color: rgba(15, 18, 36, 0.7);
+            --text-main: #f0f4f8;
+            --text-muted: #8a99ad;
+            --border-color: rgba(255, 255, 255, 0.05);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
             --transition-spring: transform 0.6s linear(0, 0.0121, 0.0478, 0.1057, 0.1834, 0.2774, 0.3837, 0.4975, 0.6139, 0.7274, 0.8327, 0.9251, 1.0006, 1.0565, 1.0917, 1.1076, 1.1058, 1.0888, 1.0601, 1.0232, 0.9823, 0.9419, 0.9066, 0.8804, 0.8654, 0.8617, 0.8691, 0.8859, 0.9103, 0.9404, 0.9734, 1.0063, 1.0366, 1.0621, 1.0812, 1.0924, 1.0959, 1.0927, 1.0827, 1.0681, 1.0506, 1.0319, 1.0138, 0.9976, 0.9845, 0.9752, 0.9706, 0.9705, 0.9749, 0.9827, 0.9926, 1.0033, 1.0135, 1.0223, 1.0289, 1.0326, 1.0337, 1.0317, 1.0271, 1.0205, 1.0129, 1.0051, 0.998, 0.992, 0.9877, 0.9856, 0.9859, 0.9885, 0.9928, 0.9982, 1.0042, 1.0099, 1.0146, 1.0177, 1.0191, 1.0189, 1.0171, 1.0143, 1.0109, 1.0074, 1.0041, 1.0014, 0.9995, 0.9984, 0.9981, 0.9985, 0.9994, 1.0006, 1.0019, 1.0029, 1.0036, 1.0039, 1.0038, 1.0033, 1.0026, 1.0018, 1.001, 1.0003, 0.9998, 0.9995, 0.9994, 0.9995, 0.9997, 1);
         }
 
@@ -31,6 +32,11 @@
         body {
             font-family: 'Outfit', sans-serif;
             background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 15% 85%, rgba(0, 210, 255, 0.06) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.04) 0%, transparent 60%);
+            background-attachment: fixed;
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
@@ -42,37 +48,71 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 50px;
+            padding: 18px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition-smooth);
         }
 
         nav .logo {
             font-size: 1.5rem;
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+        }
+
+        nav .logo a {
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        nav .logo span {
+            background: linear-gradient(to right, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         nav ul {
             display: flex;
             list-style: none;
             gap: 30px;
+            align-items: center;
         }
 
         nav ul li a {
-            color: var(--text-main);
+            color: #e2e8f0;
             text-decoration: none;
             font-weight: 400;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00f2fe;
+            transition: var(--transition-smooth);
+        }
+
+        nav ul li a:hover::after, nav ul li a.active::after {
+            width: 100%;
         }
 
         nav ul li a:hover, nav ul li a.active {
-            color: var(--secondary);
+            color: #00f2fe;
         }
 
         /* Gradient Text Utility */
@@ -139,18 +179,21 @@
 
         .project-card {
             background: var(--surface-color);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 25px;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 20px var(--shadow-color);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             transition: var(--transition-spring), border-color 0.3s, box-shadow 0.3s;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary);
+            border-color: rgba(0, 210, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 210, 255, 0.15);
         }
 
         .project-card img {
@@ -159,13 +202,13 @@
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 20px;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .project-card h3 {
             font-size: 1.35rem;
             font-weight: 700;
-            color: var(--text-main);
+            color: #ffffff;
             margin-bottom: 10px;
         }
 
@@ -187,10 +230,11 @@
         .tech-tags span {
             font-family: 'Fira Code', monospace;
             font-size: 0.75rem;
-            background: rgba(26, 115, 232, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             color: var(--secondary);
             padding: 4px 10px;
             border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
         }
 
         .project-links {
@@ -234,9 +278,10 @@
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(3, 7, 18, 0.85);
             z-index: 9999;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             align-items: center;
             justify-content: center;
             opacity: 0;
@@ -249,26 +294,26 @@
         .demo-modal-content {
             width: 90%;
             height: 85%;
-            background: #fff;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
         }
         .demo-modal-header {
             background: #f8fafc;
-            padding: 15px 20px;
+            padding: 15px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid #e2e8f0;
         }
         .demo-modal-header h3 {
             font-size: 1.1rem;
-            color: var(--text-main);
+            color: #0f172a;
             margin: 0;
             display: flex;
             align-items: center;
@@ -295,7 +340,7 @@
             padding: 40px 0;
             text-align: center;
             border-top: 1px solid var(--border-color);
-            background: #f1f5f9;
+            background: rgba(6, 7, 17, 0.95);
             margin-top: 60px;
         }
 
@@ -306,11 +351,13 @@
         }
 
         footer a {
-            color: var(--secondary);
+            color: var(--primary);
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         footer a:hover {
+            color: var(--secondary);
             text-decoration: underline;
         }
 
@@ -381,8 +428,22 @@
         <h1 class="section-title"><span class="text-gradient">My Projects</span></h1>
         
         <div class="project-grid">
+
+            <!-- 1. MetroMotion -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1519003722824-19219d42a389?auto=format&fit=crop&w=800&q=80" alt="MetroMotion">
+                <h3>MetroMotion</h3>
+                <p>Nairobi Smart Transit & Fleet Command console. Features interactive SVG LiveMap bus routing, simulated Lipa na M-Pesa fare top-up terminals, vehicle dispatch systems, and dynamic performance gauges.</p>
+                <div class="tech-tags">
+                    <span>React 19</span><span>SVG Map</span><span>M-Pesa API</span><span>Tailwind CSS</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/metromotion" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" onclick="event.preventDefault(); openDemo('https://fred4377.github.io/metromotion/', 'MetroMotion Smart Transit Command Console')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
             
-            <!-- 1. ShopEase -->
+            <!-- 2. ShopEase -->
             <div class="project-card">
                 <img src="screenshots/shopease.png" alt="ShopEase">
                 <h3>ShopEase</h3>

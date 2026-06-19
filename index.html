@@ -11,34 +11,39 @@
     <style>
         /* Modern Design System & Variables */
         :root {
-            --primary: #2563eb;
-            --secondary: #0d9488;
-            --bg-color: #f8fafc;
-            --surface-color: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --border-color: rgba(15, 23, 42, 0.08);
-            --shadow-color: rgba(15, 23, 42, 0.04);
-            --font-main: 'Outfit', sans-serif;
-            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            --transition-spring: transform 0.6s linear(0, 0.0121, 0.0478, 0.1057, 0.1834, 0.2774, 0.3837, 0.4975, 0.6139, 0.7274, 0.8327, 0.9251, 1.0006, 1.0565, 1.0917, 1.1076, 1.1058, 1.0888, 1.0601, 1.0232, 0.9823, 0.9419, 0.9066, 0.8804, 0.8654, 0.8617, 0.8691, 0.8859, 0.9103, 0.9404, 0.9734, 1.0063, 1.0366, 1.0621, 1.0812, 1.0924, 1.0959, 1.0927, 1.0827, 1.0681, 1.0506, 1.0319, 1.0138, 0.9976, 0.9845, 0.9752, 0.9706, 0.9705, 0.9749, 0.9827, 0.9926, 1.0033, 1.0135, 1.0223, 1.0289, 1.0326, 1.0337, 1.0317, 1.0271, 1.0205, 1.0129, 1.0051, 0.998, 0.992, 0.9877, 0.9856, 0.9859, 0.9885, 0.9928, 0.9982, 1.0042, 1.0099, 1.0146, 1.0177, 1.0191, 1.0189, 1.0171, 1.0143, 1.0109, 1.0074, 1.0041, 1.0014, 0.9995, 0.9984, 0.9981, 0.9985, 0.9994, 1.0006, 1.0019, 1.0029, 1.0036, 1.0039, 1.0038, 1.0033, 1.0026, 1.0018, 1.001, 1.0003, 0.9998, 0.9995, 0.9994, 0.9995, 0.9997, 1);
-        }
+        --primary: #00d2ff;
+        --secondary: #00ffaa;
+        --bg-color: #060711;
+        --surface-color: rgba(15, 18, 36, 0.7);
+        --text-main: #f0f4f8;
+        --text-muted: #8a99ad;
+        --border-color: rgba(255, 255, 255, 0.05);
+        --shadow-color: rgba(0, 0, 0, 0.3);
+        --font-main: 'Outfit', sans-serif;
+        --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        --transition-spring: transform 0.6s linear(0, 0.0121, 0.0478, 0.1057, 0.1834, 0.2774, 0.3837, 0.4975, 0.6139, 0.7274, 0.8327, 0.9251, 1.0006, 1.0565, 1.0917, 1.1076, 1.1058, 1.0888, 1.0601, 1.0232, 0.9823, 0.9419, 0.9066, 0.8804, 0.8654, 0.8617, 0.8691, 0.8859, 0.9103, 0.9404, 0.9734, 1.0063, 1.0366, 1.0621, 1.0812, 1.0924, 1.0959, 1.0927, 1.0827, 1.0681, 1.0506, 1.0319, 1.0138, 0.9976, 0.9845, 0.9752, 0.9706, 0.9705, 0.9749, 0.9827, 0.9926, 1.0033, 1.0135, 1.0223, 1.0289, 1.0326, 1.0337, 1.0317, 1.0271, 1.0205, 1.0129, 1.0051, 0.998, 0.992, 0.9877, 0.9856, 0.9859, 0.9885, 0.9928, 0.9982, 1.0042, 1.0099, 1.0146, 1.0177, 1.0191, 1.0189, 1.0171, 1.0143, 1.0109, 1.0074, 1.0041, 1.0014, 0.9995, 0.9984, 0.9981, 0.9985, 0.9994, 1.0006, 1.0019, 1.0029, 1.0036, 1.0039, 1.0038, 1.0033, 1.0026, 1.0018, 1.001, 1.0003, 0.9998, 0.9995, 0.9994, 0.9995, 0.9997, 1);
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
 
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
+    body {
+        font-family: var(--font-main);
+        background-color: var(--bg-color);
+        background-image: 
+            radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+            radial-gradient(circle at 15% 85%, rgba(0, 210, 255, 0.06) 0%, transparent 45%),
+            radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.04) 0%, transparent 60%);
+        background-attachment: fixed;
+        color: var(--text-main);
+        line-height: 1.6;
+        overflow-x: hidden;
+        transition: background-color 0.5s ease, color 0.5s ease;
+    }
         
         /* Gradient Text Utility */
         .text-gradient {
@@ -345,17 +350,19 @@
            2. ABOUT SECTION (#about) - Luxury Sand / Linen
            ========================================== */
         #about {
-            --primary: #0a192f;
-            --secondary: #d4af37;
-            --bg-color: #faf8f5;
-            --surface-color: #ffffff;
-            --text-main: #1f2937;
-            --text-muted: #4b5563;
-            --border-color: rgba(10, 25, 47, 0.08);
-            background: #faf8f5;
+            --primary: #f0f4f8;
+            --secondary: #00d2ff;
+            --bg-color: transparent;
+            --surface-color: rgba(15, 18, 36, 0.7);
+            --text-main: #f0f4f8;
+            --text-muted: #8a99ad;
+            --border-color: rgba(255, 255, 255, 0.05);
+            background: rgba(15, 18, 36, 0.45);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             color: var(--text-main);
-            border-top: 1px solid #eae5df;
-            border-bottom: 1px solid #eae5df;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         #about .section-title {
@@ -408,7 +415,7 @@
             --text-main: #e5e7eb;
             --text-muted: #9ca3af;
             --border-color: rgba(255, 255, 255, 0.08);
-            background: linear-gradient(180deg, #121212 0%, #0a0d16 100%);
+            background: transparent;
             color: var(--text-main);
         }
 
@@ -420,6 +427,8 @@
 
         #projects .project-card {
             background: var(--surface-color);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 30px;
@@ -428,7 +437,7 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         #projects .project-card img {
@@ -566,6 +575,9 @@
         }
         .card-chatbotpro {
             border-top: 4px solid #00f2fe !important;
+        }
+        .card-metromotion {
+            border-top: 4px solid #8b5cf6 !important;
         }
 
         #projects .btn-primary {
@@ -839,7 +851,21 @@
         <h2 class="section-title">Featured Work</h2>
         <div class="project-grid">
             
-            <!-- 1. ShopEase -->
+            <!-- 1. MetroMotion -->
+            <div class="project-card card-metromotion reveal">
+                <img src="https://images.unsplash.com/photo-1519003722824-19219d42a389?auto=format&fit=crop&w=800&q=80" alt="MetroMotion">
+                <h3>MetroMotion</h3>
+                <p>Nairobi Smart Transit & Fleet Command console. Features interactive SVG LiveMap bus routing, simulated Lipa na M-Pesa fare top-up terminals, vehicle dispatch systems, and dynamic performance gauges.</p>
+                <div class="tech-tags">
+                    <span>React 19</span><span>SVG Map</span><span>M-Pesa API</span><span>Tailwind CSS</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Fred4377/metromotion" target="_blank" class="project-link"><i class="fab fa-github"></i> Repo</a>
+                    <a href="#" onclick="event.preventDefault(); openDemoModal('https://fred4377.github.io/metromotion/')" class="project-link live"><i class="fas fa-play"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 2. ShopEase -->
             <div class="project-card card-shopease reveal">
                 <img src="screenshots/shopease.png" alt="ShopEase">
                 <div class="rating-stars">
@@ -861,7 +887,7 @@
                 </div>
             </div>
 
-            <!-- 2. DashPro Dashboard -->
+            <!-- 3. DashPro Dashboard -->
             <div class="project-card card-dashpro reveal">
                 <img src="screenshots/dashpro.png" alt="DashPro Dashboard">
                 <h3>DashPro Dashboard</h3>
@@ -875,7 +901,7 @@
                 </div>
             </div>
 
-            <!-- 3. BookEase -->
+            <!-- 4. BookEase -->
             <div class="project-card card-bookease reveal">
                 <img src="screenshots/bookease.png" alt="BookEase">
                 <div class="whatsapp-glow">
@@ -892,7 +918,7 @@
                 </div>
             </div>
 
-            <!-- 4. ChatBotPro -->
+            <!-- 5. ChatBotPro -->
             <div class="project-card card-chatbotpro reveal">
                 <img src="screenshots/chatbotpro.png" alt="ChatBotPro">
                 <h3>ChatBotPro</h3>
@@ -909,7 +935,7 @@
         </div>
 
         <div style="text-align: center; margin-top: 60px;" class="reveal">
-            <a href="projects.html" class="btn btn-primary"><i class="fas fa-layer-group"></i> View All 10 Projects</a>
+            <a href="projects.html" class="btn btn-primary"><i class="fas fa-layer-group"></i> View All 11 Projects</a>
         </div>
     </section>
 

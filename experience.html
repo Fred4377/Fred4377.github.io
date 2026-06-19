@@ -11,14 +11,14 @@
     <style>
         /* Modern Design System & Variables - Cyber Tech Dark Theme */
         :root {
-            --primary: #06b6d4;
-            --secondary: #10b981;
-            --bg-color: #111827;
-            --surface-color: #030712;
-            --text-main: #e5e7eb;
-            --text-muted: #9ca3af;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --shadow-color: rgba(0, 0, 0, 0.4);
+            --primary: #00d2ff;
+            --secondary: #00ffaa;
+            --bg-color: #060711;
+            --surface-color: rgba(15, 18, 36, 0.7);
+            --text-main: #f0f4f8;
+            --text-muted: #8a99ad;
+            --border-color: rgba(255, 255, 255, 0.05);
+            --shadow-color: rgba(0, 0, 0, 0.3);
             --font-main: 'Outfit', sans-serif;
             --font-code: 'JetBrains Mono', monospace;
             --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
@@ -35,6 +35,11 @@
         body {
             font-family: var(--font-main);
             background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 15% 85%, rgba(0, 210, 255, 0.06) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.04) 0%, transparent 60%);
+            background-attachment: fixed;
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
@@ -179,6 +184,8 @@
         /* Bento-style Dark Card Panels */
         .card {
             background: var(--surface-color);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 35px;
@@ -189,8 +196,8 @@
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: rgba(6, 182, 212, 0.3);
-            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.15);
+            border-color: rgba(0, 210, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 210, 255, 0.15);
         }
 
         .card h3 {
@@ -358,7 +365,7 @@
             padding: 40px 0;
             text-align: center;
             border-top: 1px solid var(--border-color);
-            background: #080c14;
+            background: rgba(6, 7, 17, 0.95);
             margin-top: 60px;
         }
 
@@ -372,9 +379,11 @@
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
+            transition: color 0.3s;
         }
 
         footer a:hover {
+            color: var(--secondary);
             text-decoration: underline;
         }
 
