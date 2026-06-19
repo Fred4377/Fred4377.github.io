@@ -429,6 +429,13 @@
                         </div>
                     </li>
                     <li>
+                        <div class="contact-icon-wrapper" style="background: rgba(37, 211, 102, 0.1); border-color: rgba(37, 211, 102, 0.2);"><i class="fab fa-whatsapp" style="color: #25d366;"></i></div>
+                        <div class="contact-details">
+                            <h4>WhatsApp Me</h4>
+                            <p><a href="https://wa.me/254798666374?text=Hi%20Fred,%20I%20saw%20your%20portfolio%20and%20would%20love%20to%20connect%20with%20you!" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.15);">Chat Direct</a></p>
+                        </div>
+                    </li>
+                    <li>
                         <div class="contact-icon-wrapper"><i class="fas fa-phone-alt"></i></div>
                         <div class="contact-details">
                             <h4>Call Me</h4>
@@ -446,6 +453,7 @@
 
                 <div class="social-container">
                     <a href="https://github.com/Fred4377" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://wa.me/254798666374?text=Hi%20Fred,%20I%20saw%20your%20portfolio%20and%20would%20love%20to%20connect%20with%20you!" target="_blank" class="social-link" title="WhatsApp" style="color: #25d366;"><i class="fab fa-whatsapp"></i></a>
                     <a href="mailto:obachi62@gmail.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
@@ -488,20 +496,47 @@
         </div>
     </div>
 
-    <!-- Alert Controller -->
+    <!-- Form Submission Controller -->
     <script>
-        function handleFormSubmit(e) {
+        async function handleFormSubmit(e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            // Just display a beautiful mock notification
-            alert(`Thank you, ${name}! Your message regarding "${subject}" has been mock-dispatched successfully.\n\nDirect contact email: obachi62@gmail.com`);
+            // Construct a highly descriptive pre-filled WhatsApp message
+            const whatsappText = `Hi Fred, my name is ${name} (${email}). I'm reaching out from your portfolio website.\n\n*Subject:* ${subject}\n*Message:* ${message}`;
+            const whatsappUrl = `https://wa.me/254798666374?text=${encodeURIComponent(whatsappText)}`;
             
-            // Reset form
-            document.getElementById('contactForm').reset();
+            // Show dispatch loading state
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalBtnContent = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Dispatching Alert...';
+
+            try {
+                // Submit to Formspree (placeholder ID, Fred can register his Formspree ID here to receive emails)
+                await fetch('https://formspree.io/f/mqaeoroo', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, subject, message })
+                });
+            } catch (err) {
+                console.log("Email dispatch failed, fallback routing directly to WhatsApp.");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnContent;
+                
+                // Show notification alerting that we're routing to WhatsApp to trigger the direct alert sound
+                alert(`Thank you, ${name}! Your form has been processed. We are now opening WhatsApp to send this message directly to Fred Otieno for an instant sound-notification alert on his phone and laptop!`);
+                
+                // Open the WhatsApp click-to-chat window in a new tab
+                window.open(whatsappUrl, '_blank');
+                
+                // Reset form fields
+                document.getElementById('contactForm').reset();
+            }
         }
     </script>
 
