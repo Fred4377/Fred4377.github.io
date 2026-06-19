@@ -31,16 +31,18 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 15% 85%, rgba(0, 210, 255, 0.06) 0%, transparent 45%),
-                radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.04) 0%, transparent 60%);
-            background-attachment: fixed;
+            background-color: #09101f;
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
             padding-top: 80px; /* navbar padding */
+        }
+
+        /* Blog page wrapper - distinct background */
+        .page-wrapper {
+            background: #0c1525;
+            min-height: 100vh;
+            border-top: 1px solid rgba(0, 210, 255, 0.08);
         }
 
         /* Navbar */
@@ -52,11 +54,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: #090d16;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(0, 210, 255, 0.12);
             transition: var(--transition-smooth);
         }
 
@@ -689,6 +689,7 @@
     </nav>
 
     <!-- Main Content -->
+    <div class="page-wrapper">
     <div class="container">
         
         <header class="blog-header">
@@ -1083,11 +1084,12 @@ module.exports = router;</code></pre>
     </script>
 
     <!-- Footer -->
-    <footer>
+    <footer style="background:#05070f; border-top:1px solid rgba(255,255,255,0.06);">
         <div class="container" style="padding: 0 20px;">
             <p>&copy; 2026 Fred Otieno. Built from scratch with HTML, CSS, and JS. Pushed to <a href="https://github.com/Fred4377" target="_blank">GitHub</a>.</p>
         </div>
     </footer>
+    </div><!-- /.page-wrapper -->
 
 </body>
 </html>
