@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Cuts Barbers and Salon | Look Sharp. Feel Sharp.</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader-wrapper">
+        <div class="loader-content">
+            <i class="fa-solid fa-scissors fa-3x gold-text"></i>
+            <h2>Fresh Cuts</h2>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header id="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#"><i class="fa-solid fa-scissors"></i> Fresh Cuts</a>
+            </div>
+            <!-- Main Desktop Links -->
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="https://wa.me/254723345667" class="btn btn-gold nav-btn">Book Now</a>
+            <!-- Mobile Menu Toggle -->
+            <div class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content reveal">
+            <div class="gold-line"></div>
+            <h1>Fresh Cuts. Premium Grooming.</h1>
+            <p>Nairobi's ultimate grooming experience along Kindaruma Road.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/254723345667" class="btn btn-gold">Book Appointment</a>
+                <a href="#services" class="btn btn-outline">Our Services</a>
+            </div>
+        </div>
+        <a href="#services" class="scroll-down">
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container reveal">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <div class="gold-line mx-auto"></div>
+            </div>
+            <!-- Using grid for the service cards -->
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <img src="https://images.pexels.com/photos/1813276/pexels-photo-1813276.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Classic Haircut" class="service-img">
+                    <h3>Classic Haircut</h3>
+                    <p class="price">KSh 300</p>
+                    <p class="desc">A tailored classic cut matching your style.</p>
+                    <a href="javascript:void(0)" class="btn btn-gold-sm book-service-btn" data-service="Classic Haircut" data-price="KSh 300">Book This Service</a>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <img src="https://images.pexels.com/photos/1813289/pexels-photo-1813289.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Beard Trim" class="service-img">
+                    <h3>Beard Trim</h3>
+                    <p class="price">KSh 150</p>
+                    <p class="desc">Expert beard shaping and trimming.</p>
+                    <a href="javascript:void(0)" class="btn btn-gold-sm book-service-btn" data-service="Beard Trim" data-price="KSh 150">Book This Service</a>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <img src="https://images.pexels.com/photos/3998436/pexels-photo-3998436.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Hot Towel Shave" class="service-img">
+                    <h3>Hot Towel Shave</h3>
+                    <p class="price">KSh 250</p>
+                    <p class="desc">Relaxing traditional straight razor shave.</p>
+                    <a href="javascript:void(0)" class="btn btn-gold-sm book-service-btn" data-service="Hot Towel Shave" data-price="KSh 250">Book This Service</a>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <img src="https://images.pexels.com/photos/2068911/pexels-photo-2068911.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Hair + Beard Combo" class="service-img">
+                    <h3>Hair + Beard Combo</h3>
+                    <p class="price">KSh 400</p>
+                    <p class="desc">The complete royal grooming experience.</p>
+                    <a href="javascript:void(0)" class="btn btn-gold-sm book-service-btn" data-service="Hair + Beard Combo" data-price="KSh 400">Book This Service</a>
+                </div>
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <img src="https://images.pexels.com/photos/1569421/pexels-photo-1569421.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Kids Haircut" class="service-img">
+                    <h3>Kids Haircut</h3>
+                    <p class="price">KSh 200</p>
+                    <p class="desc">Stylish cuts for the young princes.</p>
+                    <a href="javascript:void(0)" class="btn btn-gold-sm book-service-btn" data-service="Kids Haircut" data-price="KSh 200">Book This Service</a>
+                </div>
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <img src="https://images.pexels.com/photos/2040186/pexels-photo-2040186.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Hair Design" class="service-img">
+                    <h3>Hair Design</h3>
+                    <p class="price">KSh 350</p>
+                    <p class="desc">Custom patterns and artistic designs.</p>
+                    <a href="javascript:void(0)" class="btn btn-gold-sm book-service-btn" data-service="Hair Design" data-price="KSh 350">Book This Service</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Barber Shift Board Section -->
+    <section id="shifts" class="shifts" style="padding: 100px 0; background-color: var(--bg-black);">
+        <div class="container reveal">
+            <div class="section-title">
+                <h2>Barber Shift Board</h2>
+                <div class="gold-line mx-auto"></div>
+                <p style="text-align: center; color: var(--text-secondary); max-width: 500px; margin: 0 auto 40px; font-style: italic;">
+                    Check today's shift board to see which professional barber is active.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto;">
+                <!-- Barber 1 -->
+                <div style="background-color: var(--bg-dark-gray); padding: 30px; border-radius: 4px; border: 1px solid rgba(44, 26, 17, 0.1); text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+                    <div style="width: 70px; height: 70px; border-radius: 50%; background-color: var(--accent-gold); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 16px; font-family: var(--font-heading);">AO</div>
+                    <h3 style="font-family: var(--font-heading); margin-bottom: 4px; font-size: 1.2rem; text-transform: uppercase;">Andrew Otieno</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px; font-family: var(--font-body);">Master Stylist</p>
+                    <div style="display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; background-color: rgba(46, 204, 113, 0.15); color: #27ae60; text-transform: uppercase; font-family: var(--font-heading);">Active Now</div>
+                    <p style="font-size: 0.8rem; margin-top: 12px; color: var(--text-muted); font-family: var(--font-body);">Shift: 8:30 AM - 3:00 PM</p>
+                </div>
+                <!-- Barber 2 -->
+                <div style="background-color: var(--bg-dark-gray); padding: 30px; border-radius: 4px; border: 1px solid rgba(44, 26, 17, 0.1); text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+                    <div style="width: 70px; height: 70px; border-radius: 50%; background-color: var(--text-muted); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 16px; font-family: var(--font-heading);">MK</div>
+                    <h3 style="font-family: var(--font-heading); margin-bottom: 4px; font-size: 1.2rem; text-transform: uppercase;">Mike Kamau</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px; font-family: var(--font-body);">Beard Specialist</p>
+                    <div style="display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; background-color: rgba(243, 156, 18, 0.15); color: #d35400; text-transform: uppercase; font-family: var(--font-heading);">Starts at 3 PM</div>
+                    <p style="font-size: 0.8rem; margin-top: 12px; color: var(--text-muted); font-family: var(--font-body);">Shift: 3:00 PM - 7:30 PM</p>
+                </div>
+                <!-- Barber 3 -->
+                <div style="background-color: var(--bg-dark-gray); padding: 30px; border-radius: 4px; border: 1px solid rgba(44, 26, 17, 0.1); text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+                    <div style="width: 70px; height: 70px; border-radius: 50%; background-color: var(--text-muted); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 16px; font-family: var(--font-heading);">JO</div>
+                    <h3 style="font-family: var(--font-heading); margin-bottom: 4px; font-size: 1.2rem; text-transform: uppercase;">John Onyango</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px; font-family: var(--font-body);">Classic Cutter</p>
+                    <div style="display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; background-color: rgba(231, 76, 60, 0.15); color: #c0392b; text-transform: uppercase; font-family: var(--font-heading);">Off-Duty</div>
+                    <p style="font-size: 0.8rem; margin-top: 12px; color: var(--text-muted); font-family: var(--font-body);">Rest Day: Sundays</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container reveal">
+            <div class="section-title">
+                <h2>Our Work</h2>
+                <div class="gold-line mx-auto"></div>
+            </div>
+            <!-- TODO: replace these with actual client photos once the owner sends them -->
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3998429/pexels-photo-3998429.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Haircut 1">
+                    <div class="overlay"><span>View</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/2068910/pexels-photo-2068910.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Haircut 2">
+                    <div class="overlay"><span>View</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Haircut 3">
+                    <div class="overlay"><span>View</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/2809628/pexels-photo-2809628.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Haircut 4">
+                    <div class="overlay"><span>View</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/2040189/pexels-photo-2040189.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Haircut 5">
+                    <div class="overlay"><span>View</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/897262/pexels-photo-897262.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Haircut 6">
+                    <div class="overlay"><span>View</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox for Gallery popups -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container reveal">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <div class="gold-line mx-auto"></div>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="quote">"I have been coming here since 2020 and honestly one of the best barbershops in Kenya. Their service is top notch and the barbers are really friendly. 5-Star rating which is absolutely deserved."</p>
+                    <div class="client-info">
+                        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Jameel Y." class="avatar">
+                        <span class="name">Jameel Yahya</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="quote">"Coming from Istanbul where the price of a haircut gets you the basics, going to Fresh Cuts was the best money I spent in Nairobi. Premium service and great attention to details. Would definitely recommend."</p>
+                    <div class="client-info">
+                        <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Chidiogo E." class="avatar">
+                        <span class="name">Chidiogo Emmanuel</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="quote">"Incredible haircut, service, salon and barbershop. Highly recommend this spot. I found them via google reviews after arriving from Thailand. Thank you Andrew and the whole team."</p>
+                    <div class="client-info">
+                        <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Ben B." class="avatar">
+                        <span class="name">Ben B.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking Section -->
+    <section id="contact" class="contact">
+        <div class="container reveal">
+            <div class="contact-split">
+                <div class="contact-left">
+                    <h2>Ready for a Fresh Cut?</h2>
+                    <div class="gold-line"></div>
+                    <p>Book your appointment today via WhatsApp for the fastest response.</p>
+                    <a href="https://wa.me/254723345667" class="btn btn-gold btn-large">
+                        <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
+                    </a>
+                </div>
+                <div class="contact-right">
+                    <h3>Contact Details</h3>
+                    <ul class="contact-info">
+                        <li><i class="fa-solid fa-location-dot"></i> Kindaruma Court along Kindaruma Rd, Nairobi</li>
+                        <li><i class="fa-solid fa-phone"></i> +254 723 345667</li>
+                        <li><i class="fa-solid fa-envelope"></i> bookings@freshcutsbarbers.com</li>
+                    </ul>
+                    <h3>Opening Hours</h3>
+                    <ul class="hours">
+                        <li>Mon - Sat: <span>8:30 AM - 7:30 PM</span></li>
+                        <li>Sunday: <span>11:00 AM - 9:00 PM</span></li>
+                    </ul>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8139775317373!2d36.790117374828135!3d-1.2983177986893699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10b777a83d95%3A0xe54d2dc87e6fa5a0!2sKindaruma%20Rd%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1718872000000!5m2!1sen!2ske" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo"><i class="fa-solid fa-scissors"></i> Fresh Cuts</a>
+                <p>Look Sharp. Feel Sharp.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Made with love &copy; 2026 Fresh Cuts Barbers and Salon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- M-Pesa Modal (Mocked for Demo) -->
+    <div id="mpesa-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-mpesa">&times;</span>
+            <div class="mpesa-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" alt="M-Pesa Logo" class="mpesa-logo">
+                <h3>Pay with M-Pesa</h3>
+            </div>
+            <div id="mpesa-details">
+                <p>Service: <span id="mpesa-service-name" class="gold-text"></span></p>
+                <p>Amount: <span id="mpesa-price" class="gold-text"></span></p>
+            </div>
+            <div class="mpesa-form" id="mpesa-form-step">
+                <label for="mpesa-phone" style="display:block; margin-bottom:10px; color:#aaa;">M-Pesa Phone Number:</label>
+                <input type="text" id="mpesa-phone" placeholder="e.g. 0712 345 678" required style="width:100%; padding:12px; border-radius:4px; border:1px solid #333; background:#111; color:#fff; margin-bottom:15px; font-family:var(--font-body);">
+                <button id="mpesa-pay-btn" class="btn btn-gold btn-full mt-3" style="width: 100%;">Send STK Push</button>
+            </div>
+            <div id="mpesa-loading" style="display:none;" class="text-center mpesa-state">
+                <i class="fa-solid fa-spinner fa-spin fa-3x gold-text"></i>
+                <p style="margin-top: 15px; color:#aaa;">Check your phone to enter M-Pesa PIN...</p>
+            </div>
+            <div id="mpesa-success" style="display:none;" class="text-center mpesa-state">
+                <i class="fa-solid fa-circle-check fa-3x" style="color: #4CAF50;"></i>
+                <h4 style="margin-top: 15px; color: #4CAF50;">Payment Successful!</h4>
+                <p style="color:#aaa;">Your appointment is confirmed. See you soon!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Elements -->
+    <a href="https://wa.me/254723345667" class="floating-wa">
+        <i class="fa-brands fa-whatsapp"></i> <span>Book on WhatsApp</span>
+    </a>
+    <button id="scrollTopBtn" class="scroll-top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
