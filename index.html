@@ -9,20 +9,21 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Modern Design System & Variables */
+        /* Modern Design System & Variables - Light Professional Corporate Theme */
         :root {
-        --primary: #00d2ff;
-        --secondary: #00ffaa;
-        --bg-color: #060711;
-        --surface-color: rgba(15, 18, 36, 0.7);
-        --text-main: #f0f4f8;
-        --text-muted: #8a99ad;
-        --border-color: rgba(255, 255, 255, 0.05);
-        --shadow-color: rgba(0, 0, 0, 0.3);
-        --font-main: 'Outfit', sans-serif;
-        --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        --transition-spring: transform 0.6s linear(0, 0.0121, 0.0478, 0.1057, 0.1834, 0.2774, 0.3837, 0.4975, 0.6139, 0.7274, 0.8327, 0.9251, 1.0006, 1.0565, 1.0917, 1.1076, 1.1058, 1.0888, 1.0601, 1.0232, 0.9823, 0.9419, 0.9066, 0.8804, 0.8654, 0.8617, 0.8691, 0.8859, 0.9103, 0.9404, 0.9734, 1.0063, 1.0366, 1.0621, 1.0812, 1.0924, 1.0959, 1.0927, 1.0827, 1.0681, 1.0506, 1.0319, 1.0138, 0.9976, 0.9845, 0.9752, 0.9706, 0.9705, 0.9749, 0.9827, 0.9926, 1.0033, 1.0135, 1.0223, 1.0289, 1.0326, 1.0337, 1.0317, 1.0271, 1.0205, 1.0129, 1.0051, 0.998, 0.992, 0.9877, 0.9856, 0.9859, 0.9885, 0.9928, 0.9982, 1.0042, 1.0099, 1.0146, 1.0177, 1.0191, 1.0189, 1.0171, 1.0143, 1.0109, 1.0074, 1.0041, 1.0014, 0.9995, 0.9984, 0.9981, 0.9985, 0.9994, 1.0006, 1.0019, 1.0029, 1.0036, 1.0039, 1.0038, 1.0033, 1.0026, 1.0018, 1.001, 1.0003, 0.9998, 0.9995, 0.9994, 0.9995, 0.9997, 1);
-    }
+            --primary: #0a2540; /* Wylde Deep Blue */
+            --secondary: #007a5e; /* Wylde Forest Green */
+            --accent-gold: #c5a880; /* Corporate Gold Accent */
+            --bg-color: #ffffff;
+            --surface-color: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --shadow-color: rgba(10, 37, 64, 0.06);
+            --font-main: 'Outfit', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-spring: transform 0.6s linear(0, 0.0121, 0.0478, 0.1057, 0.1834, 0.2774, 0.3837, 0.4975, 0.6139, 0.7274, 0.8327, 0.9251, 1.0006, 1.0565, 1.0917, 1.1076, 1.1058, 1.0888, 1.0601, 1.0232, 0.9823, 0.9419, 0.9066, 0.8804, 0.8654, 0.8617, 0.8691, 0.8859, 0.9103, 0.9404, 0.9734, 1.0063, 1.0366, 1.0621, 1.0812, 1.0924, 1.0959, 1.0927, 1.0827, 1.0681, 1.0506, 1.0319, 1.0138, 0.9976, 0.9845, 0.9752, 0.9706, 0.9705, 0.9749, 0.9827, 0.9926, 1.0033, 1.0135, 1.0223, 1.0289, 1.0326, 1.0337, 1.0317, 1.0271, 1.0205, 1.0129, 1.0051, 0.998, 0.992, 0.9877, 0.9856, 0.9859, 0.9885, 0.9928, 0.9982, 1.0042, 1.0099, 1.0146, 1.0177, 1.0191, 1.0189, 1.0171, 1.0143, 1.0109, 1.0074, 1.0041, 1.0014, 0.9995, 0.9984, 0.9981, 0.9985, 0.9994, 1.0006, 1.0019, 1.0029, 1.0036, 1.0039, 1.0038, 1.0033, 1.0026, 1.0018, 1.001, 1.0003, 0.9998, 0.9995, 0.9994, 0.9995, 0.9997, 1);
+        }
 
     * {
         margin: 0;
@@ -52,7 +53,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Sticky Glassmorphic Navbar */
+        /* Sticky Light Navbar */
         nav {
             position: fixed;
             top: 0;
@@ -61,9 +62,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #090d16;
+            background: #ffffff;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
             transition: var(--transition-smooth);
         }
 
@@ -74,14 +76,14 @@
         }
 
         nav .logo a {
-            color: #ffffff;
+            color: var(--primary);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
         }
 
         nav .logo span {
-            background: linear-gradient(to right, #00f2fe, #4facfe);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -94,10 +96,14 @@
         }
 
         nav ul li a {
-            color: #e2e8f0;
+            color: #334155;
             text-decoration: none;
-            font-weight: 400;
+            font-weight: 500;
             font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding: 5px 0;
+        }
             transition: var(--transition-smooth);
             position: relative;
             padding: 5px 0;
@@ -110,7 +116,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #00f2fe;
+            background: var(--secondary);
             transition: var(--transition-smooth);
         }
 
@@ -119,7 +125,7 @@
         }
 
         nav ul li a:hover, nav ul li a.active {
-            color: #00f2fe;
+            color: var(--secondary);
         }
 
         /* Professional Blog Badge */
@@ -187,16 +193,16 @@
         }
 
         /* ==========================================
-           1. HERO SECTION (#home) - Cyberpunk Midnight
+           1. HERO SECTION (#home) - Clean Light Slate
            ========================================== */
         #home {
-            --primary: #00f2fe;
-            --secondary: #8b5cf6;
-            --bg-color: #030712;
-            --text-main: #ffffff;
-            --text-muted: #9ca3af;
-            --border-color: rgba(255, 255, 255, 0.08);
-            background: radial-gradient(circle at 50% 50%, #0c1220 0%, #030712 100%);
+            --primary: #0a2540;
+            --secondary: #007a5e;
+            --bg-color: #f8fafc;
+            --text-main: #0a2540;
+            --text-muted: #475569;
+            --border-color: rgba(0, 0, 0, 0.06);
+            background: radial-gradient(circle at 80% 20%, #f1f5f9 0%, #f8fafc 100%);
             color: var(--text-main);
             height: 100vh;
             display: flex;
@@ -212,65 +218,42 @@
             font-weight: 800;
             margin-bottom: 10px;
             letter-spacing: -1px;
-            text-shadow: 0 0 20px rgba(0, 242, 254, 0.15);
+            color: var(--primary);
         }
 
         #home h2 {
             font-size: 1.6rem;
             color: var(--text-muted);
             margin-bottom: 30px;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         #home .typed-text {
-            font-weight: 600;
-            text-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
-        }
-
-        /* Typewriter Cursor */
-        .cursor {
-            display: inline-block;
-            background-color: var(--primary);
-            margin-left: 3px;
-            width: 3px;
-            height: 1.6rem;
-            vertical-align: middle;
-            animation: blink 1s infinite;
-        }
-        
-        .cursor.typing {
-            animation: none;
-        }
-        
-        @keyframes blink {
-            0% { background-color: var(--primary); }
-            49% { background-color: var(--primary); }
-            50% { background-color: transparent; }
-            99% { background-color: transparent; }
-            100% { background-color: var(--primary); }
+            font-weight: 700;
+            color: var(--secondary);
         }
 
         #home .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #ffffff;
             border: none;
-            box-shadow: 0 4px 20px rgba(0, 242, 254, 0.35);
+            box-shadow: 0 4px 15px rgba(10, 37, 64, 0.15);
         }
 
         #home .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.55);
+            box-shadow: 0 8px 25px rgba(10, 37, 64, 0.25);
         }
 
         #home .btn-outline {
             background: transparent;
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
         }
 
         #home .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--primary);
+            background: rgba(10, 37, 64, 0.03);
+            border-color: var(--secondary);
             transform: translateY(-3px);
         }
 
@@ -285,13 +268,13 @@
         
         .particle {
             position: absolute;
-            background: rgba(0, 242, 254, 0.08);
+            background: rgba(10, 37, 64, 0.03);
             border-radius: 50%;
             animation: float 12s infinite linear;
         }
 
         .particle:nth-child(even) {
-            background: rgba(139, 92, 246, 0.08);
+            background: rgba(0, 122, 94, 0.03);
         }
 
         @keyframes float {
@@ -316,7 +299,7 @@
         .mouse {
             width: 24px;
             height: 40px;
-            border: 2px solid #ffffff;
+            border: 2px solid var(--primary);
             border-radius: 12px;
             position: relative;
         }
@@ -345,20 +328,20 @@
         }
 
         /* ==========================================
-           2. ABOUT SECTION (#about) - Luxury Sand / Linen
+           2. ABOUT SECTION (#about) - Corporate White
            ========================================== */
         #about {
-            --primary: #f0f4f8;
-            --secondary: #00d2ff;
-            --bg-color: #0f1322;
-            --surface-color: rgba(15, 18, 36, 0.7);
-            --text-main: #f0f4f8;
-            --text-muted: #8a99ad;
-            --border-color: rgba(255, 255, 255, 0.05);
-            background: #0f1322;
+            --primary: #0a2540;
+            --secondary: #007a5e;
+            --bg-color: #ffffff;
+            --surface-color: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #475569;
+            --border-color: rgba(0, 0, 0, 0.06);
+            background: #ffffff;
             color: var(--text-main);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         #about .section-title {
@@ -401,19 +384,19 @@
         }
 
         /* ==========================================
-           3. PROJECTS SECTION (#projects) - Tech Bento Grid
+           3. PROJECTS SECTION (#projects) - Clean Bento Grid
            ========================================== */
         #projects {
-            --primary: #10b981;
-            --secondary: #06b6d4;
-            --bg-color: #080b13;
-            --surface-color: #030712;
-            --text-main: #e5e7eb;
-            --text-muted: #9ca3af;
-            --border-color: rgba(255, 255, 255, 0.08);
-            background: #080b13;
+            --primary: #007a5e;
+            --secondary: #0a2540;
+            --bg-color: #f1f5f9;
+            --surface-color: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #475569;
+            --border-color: rgba(0, 0, 0, 0.08);
+            background: #f1f5f9;
             color: var(--text-main);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         #projects .project-grid {
@@ -424,8 +407,6 @@
 
         #projects .project-card {
             background: var(--surface-color);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 30px;
@@ -434,7 +415,7 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.03);
         }
 
         #projects .project-card img {
@@ -463,8 +444,8 @@
 
         #projects .project-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.15);
-            border-color: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 12px 30px rgba(10, 37, 64, 0.08);
+            border-color: rgba(10, 37, 64, 0.15);
         }
 
         #projects .project-card:hover::before {
@@ -475,7 +456,7 @@
             font-size: 1.45rem;
             margin-bottom: 12px;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--primary);
         }
 
         #projects .project-card p {
@@ -497,10 +478,10 @@
             font-size: 0.75rem;
             padding: 4px 10px;
             border-radius: 4px;
-            background: rgba(255, 255, 255, 0.05);
+            background: #f1f5f9;
             color: var(--secondary);
             font-family: 'Fira Code', monospace;
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.04);
         }
 
         #projects .project-links {
@@ -516,7 +497,7 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            color: #ffffff;
+            color: var(--primary);
             transition: var(--transition-smooth);
         }
 
@@ -529,13 +510,13 @@
             color: white;
             padding: 8px 18px;
             border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.25);
+            box-shadow: 0 4px 12px rgba(10, 37, 64, 0.15);
             margin-left: auto;
         }
 
         #projects .project-link.live:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(6, 182, 212, 0.45);
+            box-shadow: 0 6px 18px rgba(10, 37, 64, 0.25);
         }
 
         /* Flags & Accents Overrides for Projects */
@@ -581,26 +562,26 @@
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border: none;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);
+            box-shadow: 0 4px 15px rgba(10, 37, 64, 0.15);
         }
 
         #projects .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.45);
+            box-shadow: 0 8px 25px rgba(10, 37, 64, 0.25);
         }
 
         /* ==========================================
-           4. CONTACT SECTION (#contact) - Teal Gradient
+           4. CONTACT SECTION (#contact) - Light Corporate
            ========================================== */
         #contact {
-            --primary: #0d9488;
-            --secondary: #10b981;
-            --bg-color: #0c0f1a;
-            --surface-color: #112a27;
-            --text-main: #ffffff;
-            --text-muted: #9ca3af;
-            --border-color: rgba(255, 255, 255, 0.08);
-            background: #0c0f1a;
+            --primary: #0a2540;
+            --secondary: #007a5e;
+            --bg-color: #ffffff;
+            --surface-color: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #475569;
+            --border-color: rgba(0, 0, 0, 0.08);
+            background: #ffffff;
             color: var(--text-main);
             text-align: center;
         }
@@ -633,14 +614,14 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.03);
             transition: var(--transition-smooth);
         }
 
         .contact-card:hover {
             transform: translateY(-5px);
             border-color: var(--secondary);
-            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.15);
+            box-shadow: 0 10px 25px rgba(10, 37, 64, 0.06);
         }
 
         .contact-card i {
@@ -660,7 +641,7 @@
             font-size: 1.15rem;
             font-weight: 600;
             margin: 0;
-            color: #ffffff;
+            color: var(--primary);
         }
 
         .contact-card a {
@@ -677,23 +658,23 @@
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border: none;
-            box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
+            box-shadow: 0 4px 15px rgba(10, 37, 64, 0.15);
         }
 
         #contact .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(13, 148, 136, 0.5);
+            box-shadow: 0 8px 25px rgba(10, 37, 64, 0.25);
         }
 
         /* ==========================================
-           FOOTER
+           FOOTER - Dark Slate Corporate
            ========================================== */
         footer {
-            background-color: #05070f;
+            background-color: #0a192f;
             text-align: center;
             padding: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: #9ca3af;
+            color: #cbd5e1;
         }
 
         .social-links {
