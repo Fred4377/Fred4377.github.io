@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Booking | Fresh Cuts Barbers and Salon</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .booking-form {
+            background-color: var(--bg-dark-gray);
+            padding: 30px;
+            border-radius: 4px;
+            border: 1px solid rgba(44, 26, 17, 0.1);
+            margin-top: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: #aaa;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-family: var(--font-heading);
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            background: #111;
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+        .booking-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        @media (max-width: 576px) {
+            .booking-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader-wrapper">
+        <div class="loader-content">
+            <i class="fa-solid fa-scissors fa-3x gold-text"></i>
+            <h2>Fresh Cuts</h2>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header id="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><i class="fa-solid fa-scissors"></i> Fresh Cuts</a>
+            </div>
+            <!-- Main Desktop Links -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <a href="https://wa.me/254723345667" class="btn btn-gold nav-btn">Book Now</a>
+            <!-- Mobile Menu Toggle -->
+            <div class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contact & Booking Section -->
+    <section id="contact" class="contact" style="padding-top: 140px; padding-bottom: 80px;">
+        <div class="container reveal">
+            <div class="contact-split">
+                <div class="contact-left">
+                    <h2>Book Your Appointment</h2>
+                    <div class="gold-line"></div>
+                    <p>Fill out the details below to schedule your custom grooming session. You can pay securely with M-Pesa or complete booking on WhatsApp.</p>
+                    
+                    <form class="booking-form" id="barber-booking-form">
+                        <div class="form-group">
+                            <label for="booking-name">Your Name</label>
+                            <input type="text" id="booking-name" class="form-control" placeholder="e.g. John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="booking-phone">Phone Number</label>
+                            <input type="text" id="booking-phone" class="form-control" placeholder="e.g. 0712 345 678" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="booking-service">Select Service</label>
+                            <select id="booking-service" class="form-control" required>
+                                <option value="" disabled selected>Choose a service...</option>
+                                <option value="Classic Haircut" data-price="KSh 300">Classic Haircut - KSh 300</option>
+                                <option value="Beard Trim" data-price="KSh 150">Beard Trim - KSh 150</option>
+                                <option value="Hot Towel Shave" data-price="KSh 250">Hot Towel Shave - KSh 250</option>
+                                <option value="Hair + Beard Combo" data-price="KSh 400">Hair & Beard Combo - KSh 400</option>
+                                <option value="Kids Haircut" data-price="KSh 200">Kids Haircut - KSh 200</option>
+                                <option value="Hair Design" data-price="KSh 350">Hair Design - KSh 350</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="booking-barber">Preferred Barber</label>
+                            <select id="booking-barber" class="form-control" required>
+                                <option value="Any Available Barber" selected>Any Available Barber</option>
+                                <option value="Andrew Otieno">Andrew Otieno (Master Stylist)</option>
+                                <option value="Mike Kamau">Mike Kamau (Beard Specialist)</option>
+                                <option value="John Onyango">John Onyango (Classic Cutter)</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div>
+                                <label for="booking-date">Date</label>
+                                <input type="date" id="booking-date" class="form-control" required>
+                            </div>
+                            <div>
+                                <label for="booking-time">Time</label>
+                                <input type="time" id="booking-time" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="booking-actions">
+                            <button type="submit" id="booking-wa-btn" class="btn btn-outline" style="width: 100%;"><i class="fa-brands fa-whatsapp"></i> Book WhatsApp</button>
+                            <button type="button" id="booking-mpesa-btn" class="btn btn-gold" style="width: 100%;"><i class="fa-solid fa-mobile-screen-button"></i> Pay via M-Pesa</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="contact-right">
+                    <h3>Contact Details</h3>
+                    <ul class="contact-info">
+                        <li><i class="fa-solid fa-location-dot"></i> Kindaruma Court along Kindaruma Rd, Nairobi</li>
+                        <li><i class="fa-solid fa-phone"></i> +254 723 345667</li>
+                        <li><i class="fa-solid fa-envelope"></i> bookings@freshcutsbarbers.com</li>
+                    </ul>
+                    <h3>Opening Hours</h3>
+                    <ul class="hours">
+                        <li>Mon - Sat: <span>8:30 AM - 7:30 PM</span></li>
+                        <li>Sunday: <span>11:00 AM - 9:00 PM</span></li>
+                    </ul>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8139775317373!2d36.790117374828135!3d-1.2983177986893699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10b777a83d95%3A0xe54d2dc87e6fa5a0!2sKindaruma%20Rd%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1718872000000!5m2!1sen!2ske" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo"><i class="fa-solid fa-scissors"></i> Fresh Cuts</a>
+                <p>Look Sharp. Feel Sharp.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Made with love &copy; 2026 Fresh Cuts Barbers and Salon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- M-Pesa Modal (Mocked for Demo) -->
+    <div id="mpesa-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-mpesa">&times;</span>
+            <div class="mpesa-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" alt="M-Pesa Logo" class="mpesa-logo">
+                <h3>Pay with M-Pesa</h3>
+            </div>
+            <div id="mpesa-details">
+                <p>Service: <span id="mpesa-service-name" class="gold-text"></span></p>
+                <p>Amount: <span id="mpesa-price" class="gold-text"></span></p>
+            </div>
+            <div class="mpesa-form" id="mpesa-form-step">
+                <label for="mpesa-phone" style="display:block; margin-bottom:10px; color:#aaa;">M-Pesa Phone Number:</label>
+                <input type="text" id="mpesa-phone" placeholder="e.g. 0712 345 678" required style="width:100%; padding:12px; border-radius:4px; border:1px solid #333; background:#111; color:#fff; margin-bottom:15px; font-family:var(--font-body);">
+                <button id="mpesa-pay-btn" class="btn btn-gold btn-full mt-3" style="width: 100%;">Send STK Push</button>
+            </div>
+            <div id="mpesa-loading" style="display:none;" class="text-center mpesa-state">
+                <i class="fa-solid fa-spinner fa-spin fa-3x gold-text"></i>
+                <p style="margin-top: 15px; color:#aaa;">Check your phone to enter M-Pesa PIN...</p>
+            </div>
+            <div id="mpesa-success" style="display:none;" class="text-center mpesa-state">
+                <i class="fa-solid fa-circle-check fa-3x" style="color: #4CAF50;"></i>
+                <h4 style="margin-top: 15px; color: #4CAF50;">Payment Successful!</h4>
+                <p style="color:#aaa;">Your appointment is confirmed. See you soon!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Elements -->
+    <a href="https://wa.me/254723345667" class="floating-wa">
+        <i class="fa-brands fa-whatsapp"></i> <span>Book on WhatsApp</span>
+    </a>
+    <button id="scrollTopBtn" class="scroll-top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script>
+        // Set minimum date to today
+        const dateInput = document.getElementById('booking-date');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+        }
+
+        // WhatsApp booking submit
+        const bookingForm = document.getElementById('barber-booking-form');
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('booking-name').value;
+                const phone = document.getElementById('booking-phone').value;
+                const serviceSelect = document.getElementById('booking-service');
+                const service = serviceSelect.value;
+                const price = serviceSelect.options[serviceSelect.selectedIndex].getAttribute('data-price');
+                const barber = document.getElementById('booking-barber').value;
+                const date = document.getElementById('booking-date').value;
+                const time = document.getElementById('booking-time').value;
+
+                const text = `Hi Fresh Cuts! I would like to book a grooming appointment:
+Name: ${name}
+Phone: ${phone}
+Service: ${service} (${price})
+Barber: ${barber}
+Date: ${date}
+Time: ${time}`;
+
+                const encodedText = encodeURIComponent(text);
+                window.open(`https://wa.me/254723345667?text=${encodedText}`, '_blank');
+            });
+
+            // M-Pesa trigger from form
+            const mpesaBtn = document.getElementById('booking-mpesa-btn');
+            const checkoutModal = document.getElementById('mpesa-modal');
+            
+            if (mpesaBtn && checkoutModal) {
+                mpesaBtn.addEventListener('click', () => {
+                    const name = document.getElementById('booking-name').value;
+                    const phone = document.getElementById('booking-phone').value;
+                    const serviceSelect = document.getElementById('booking-service');
+                    const service = serviceSelect.value;
+                    
+                    if (!name || !phone || !service) {
+                        alert("Please fill in your Name, Phone Number, and select a Service to pay via M-Pesa.");
+                        return;
+                    }
+                    
+                    const price = serviceSelect.options[serviceSelect.selectedIndex].getAttribute('data-price');
+                    
+                    document.getElementById('mpesa-service-name').textContent = service;
+                    document.getElementById('mpesa-price').textContent = price;
+                    
+                    document.getElementById('mpesa-form-step').style.display = 'block';
+                    document.getElementById('mpesa-loading').style.display = 'none';
+                    document.getElementById('mpesa-success').style.display = 'none';
+                    document.getElementById('mpesa-phone').value = phone;
+                    
+                    checkoutModal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+        }
+    </script>
+</body>
+</html>
