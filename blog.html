@@ -10,16 +10,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #00d2ff;
-            --secondary: #00ffaa;
-            --bg-color: #060711;
-            --surface-color: rgba(15, 18, 36, 0.7);
-            --text-main: #f0f4f8;
-            --text-muted: #8a99ad;
-            --border-color: rgba(255, 255, 255, 0.05);
-            --shadow-color: rgba(0, 0, 0, 0.3);
+            --primary: #0a2540; /* Wylde Deep Blue */
+            --secondary: #007a5e; /* Wylde Forest Green */
+            --bg-color: #ffffff;
+            --surface-color: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --shadow-color: rgba(10, 37, 64, 0.06);
             --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            --accent-glow: rgba(0, 210, 255, 0.08);
+            --accent-glow: rgba(10, 37, 64, 0.04);
         }
 
         * {
@@ -31,7 +31,7 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background-color: #09101f;
+            background-color: #f1f5f9;
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
@@ -40,12 +40,12 @@
 
         /* Blog page wrapper - distinct background */
         .page-wrapper {
-            background: #0c1525;
+            background: #ffffff;
             min-height: 100vh;
-            border-top: 1px solid rgba(0, 210, 255, 0.08);
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
         }
 
-        /* Navbar */
+        /* Sticky Light Navbar */
         nav {
             position: fixed;
             top: 0;
@@ -54,9 +54,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #090d16;
+            background: #ffffff;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 210, 255, 0.12);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
             transition: var(--transition-smooth);
         }
 
@@ -67,14 +68,14 @@
         }
 
         nav .logo a {
-            color: #ffffff;
+            color: var(--primary);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
         }
 
         nav .logo span {
-            background: linear-gradient(to right, #00f2fe, #4facfe);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -87,9 +88,9 @@
         }
 
         nav ul li a {
-            color: #e2e8f0;
+            color: #334155;
             text-decoration: none;
-            font-weight: 400;
+            font-weight: 500;
             font-size: 0.95rem;
             transition: var(--transition-smooth);
             position: relative;
@@ -103,7 +104,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #00f2fe;
+            background: var(--secondary);
             transition: var(--transition-smooth);
         }
 
@@ -112,7 +113,7 @@
         }
 
         nav ul li a:hover, nav ul li a.active {
-            color: #00f2fe;
+            color: var(--secondary);
         }
 
         /* Gradient Text Utility */
@@ -1084,9 +1085,9 @@ module.exports = router;</code></pre>
     </script>
 
     <!-- Footer -->
-    <footer style="background:#05070f; border-top:1px solid rgba(255,255,255,0.06);">
+    <footer style="background:#0a192f; border-top:1px solid rgba(255,255,255,0.06); color:#cbd5e1;">
         <div class="container" style="padding: 0 20px;">
-            <p>&copy; 2026 Fred Otieno. Built from scratch with HTML, CSS, and JS. Pushed to <a href="https://github.com/Fred4377" target="_blank">GitHub</a>.</p>
+            <p style="color:#cbd5e1;">&copy; 2026 Fred Otieno. Built from scratch with HTML, CSS, and JS. Pushed to <a href="https://github.com/Fred4377" target="_blank" style="color:var(--secondary);">GitHub</a>.</p>
         </div>
     </footer>
     </div><!-- /.page-wrapper -->
